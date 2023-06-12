@@ -1,0 +1,218 @@
+\documentclass[letterpaper, 11pt]{report}
+\usepackage{titlesec}
+\usepackage{fullpage} % changes the margin
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx} %package to manage images
+\usepackage[linkcolor=red]{hyperref}
+\usepackage{paralist}
+\usepackage{subcaption}
+\usepackage{hyperref}
+\graphicspath{ {./images/} }
+
+\begin{document}
+\begin{titlepage}
+\vspace*{0.7in}
+\begin{center}
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[width=9cm]{univ_logo.png}
+\end{center}
+\end{figure}
+\vspace*{0.3in}
+\begin{Large}
+\textbf{SOEN 6431: SOFTWARE COMPREHENSION AND MAINTENANCE} \\
+\end{Large}
+\vspace*{0.1in}
+\begin{Large}
+\textbf{Summer 2023} \\
+\end{Large}
+\vspace*{0.9in}
+\begin{Large}
+\textbf{Deliverable - 1: Reengineering Oppurtunity} \\
+\href{https://github.com/DHAVAL-TANK/SEON_6431_Deja_VU}{Github Link}\\
+\end{Large}
+\vspace*{0.75in}
+\begin{Large}
+\textbf{\emph{Authors}} \\
+\vspace*{0.2in}
+Dhaval Tank\\
+Piyush Singla\\
+Anant Bir Singh\\
+Prabhjot Singh\\
+\end{Large}
+\end{center}
+\begin{center}
+\vspace*{0.9in}
+https://www.overleaf.com/project/648516d2a69980abca61ba99\end{center}
+\end{titlepage}
+
+\tableofcontents
+\newpage
+\addcontentsline{toc}{section}{1. Abstract}
+\section*{1. Abstract}
+\normalsize { The sustained success and viability of a software system in the ever-changing market necessitate continuous evolution. This involves making ongoing improvements and updates to the software to meet the dynamic demands and trends of the industry. Known as software maintenance, this process requires a thorough analysis of the source code and documentation, as well as a comprehensive understanding of the system's intricacies. By implementing positive changes and refining the software, its efficiency and maintainability can be significantly enhanced.\\
+
+For this assignment, we carefully selected one candidate, denoted as R, from a pool of four repositories chosen by our team members. This candidate presents an opportunity to re-engineer the software program by addressing any identified issues and improving its overall efficiency and maintainability. Through this strategic approach, we aim to optimize the software's performance and align it with industry standards, ensuring its long-term success in the market
+}
+
+\addcontentsline{toc}{section}{2. Introduction}
+\section*{2. Introduction}
+\normalsize {Software maintenance plays a pivotal role in ensuring the continued health and functionality of software systems. It provides numerous benefits, such as avoiding the need to create an entirely new system from scratch when the existing one becomes outdated. Maintenance also helps to keep the software up-to-date according to market needs, ensuring its relevance and usefulness. Furthermore, it contributes to the overall quality and maintainability of the code, preventing potential issues and degradation in the efficiency of the software.\\
+
+In our current assignment, we are conducting a comprehensive analysis of four different repositories. We carefully examine each repository, identifying unique aspects that are considered undesirable. Based on the quality of the source code and documentation, we then select a candidate, referred to as R, for further evaluation and potential reengineering. Our aim is to thoroughly investigate and address the identified issues within candidate R, leveraging reengineering techniques to enhance its usability, maintainability, and efficiency. This process entails formulating and implementing effective solutions to improve the software's overall performance, and it will be the focus of our upcoming assignment.} 
+
+\addcontentsline{toc}{section}{3. Project Deliberation}
+\section*{3. Project Deliberation}
+\addcontentsline{toc}{subsection}{3.1. Communal Work and Responsibility Matrix}
+\subsubsection*{3.1. Communal Work and Responsibility Matrix}
+\normalsize {To meet the project requirements, each team member was assigned the task of identifying a repository containing a specific software system. Subsequently, we organized a meeting where we collectively discussed and deliberated on the reasons for rejecting each system. It became apparent that every system had its own flaws, which are outlined in the Repudiation rationale for each respective system. Following the discussion, we individually took on the responsibility of composing paragraphs that explain why we rejected all systems except for the chosen one.}
+\begin{center}
+\begin{table}[]
+\begin{tabular}{|l|l|l|l|l|l|}
+\hline
+\multicolumn{1}{|c|}{\begin{tabular}[c]{@{}c@{}}DEJA-VU\\ DELIVERABLE-1\end{tabular}} & {\begin{tabular}[c]{@{}c@{}}Dhaval  Tank\end{tabular}} & {\begin{tabular}[c]{@{}c@{}}Anant Singh\end{tabular}} & {\begin{tabular}[c]{@{}c@{}} Prabhjot Singh\end{tabular}} & {\begin{tabular}[c]{@{}c@{}} Piyush Singla\end{tabular}} \\  \hline
+Project Documentation                                                                 &  x                &                 &                 &           \\
+Project Ideation                                                                      & x                & x                &  x                &  x           \\ 
+Consulting discussions                                                                & x                & x                &                & x                           \\ \hline
+\end{tabular}
+\end{table}
+\end{center}
+
+\subsection*{3.2. Candidate System Selection Criteria}
+\normalsize{\textbf{Team’s Programming capability :}\\
+After evaluating the skill set possessed by each team member, it was determined that Java would be the most suitable programming language for the project. This decision was based on the fact that all team members had comparable experience using Java as their primary development language. Consequently, applications that do not utilize Java were given a lower priority in the selection process.}\\
+\\
+\normalsize{\textbf{Complex Architecture :}\\
+When considering the architecture of potential applications, a preference was given to those with simpler setups. This is primarily because a simpler setup reduces the time spent on configuring the project, allowing more time to be allocated to analyzing the project to meet the required metrics of the candidate system. Thus, applications with complex architectures were deemed less desirable.}\\
+\\
+\normalsize{\textbf{Code quality :}\\
+The quality of the code plays a significant role in the selection process. A lower code quality necessitates a greater need for improvements. To assess code quality, each team member individually rated the project's quality by identifying 25 unique undesirables using the TeamScale tool. The team members then collaboratively agreed upon selecting the candidate system based on their assessments.}\\
+\pagebreak
+\addcontentsline{toc}{section}{4. System Description}
+\section*{4. System Description}
+\addcontentsline{toc}{subsection}{4.1. Forex Quotes fetcher}
+\subsection*{4.1. Forex Quotes fetcher \hfill \normalsize{Anant Bir Singh  - 40219360}} \\
+\\
+\normalsize {\textbf{Project Description:}} \\
+\\
+\normalsize { The python\_forex\_quotes is a Python library that allows users to fetch real-time forex quotes, using both REST and WebSocket protocols, for the purpose of currency conversion. The library enables users to retrieve a list of available symbols, get quotes for specific currency pairs, convert between currencies, and check the market status and usage quota limits. It also supports subscribing to live updates for currency pairs using the WebSocket protocol. The library requires a free API key from 1Forge and is provided under the MIT license.}\\
+\\
+\normalsize{\textbf{System Source Code :}} \\
+\normalsize{\ https://github.com/1Forge/python-forex-quotes }\\
+\\
+\normalsize{\textbf{System Stack :}}\\
+\normalsize{ Python, WebSocket, HTTP/HTTPS protocols, JSON, ‘Websocket’ Library.}\\
+\\
+\normalsize{\textbf{Repudiation Rationale : }}\\
+\normalsize{Firstly, the code lacks proper documentation and comments, which could make it challenging for the team members to understand its functionality and design with precision. This could hinder effective communication and collaboration within the team.
+ Secondly, the code exhibits a lack of modularity and clear separation of concerns because it combines REST API and WebSocket functionality within the same class, and mixes client-side and server-side logic, resulting in a codebase that is harder to understand, maintain, extend, and enhance in a systematic manner. This could impede the team's ability to implement desired improvements effectively. 
+Lastly, the functionality of the code is focused on interacting with the 1Forge API to retrieve forex-related data. The scope of the code doesn’t not cover extensive software engineering concepts or require extensive architectural changes. This limits the learning opportunities by choosing it as R.
+}
+\\
+
+\pagebreak
+\addcontentsline{toc}{subsection}{4.2. Online Banking System }
+\subsection*{4.2. Online Banking System\hfill {\normalsize{ Dhaval Tank - 40232165 }}} \\
+\\
+\normalsize {\textbf{Project Description:}} \\
+\\
+\normalsize {The Banking Management System is a robust software application developed using Java, Java Servlet, CSS, JavaScript, and SQL databases. It offers a range of essential banking functionalities, including opening savings accounts, requesting loans, making bill payments, user registration and login, withdrawal requests, and deposit schemes. By leveraging these technologies, the system ensures secure and efficient banking operations, providing users with a convenient and user-friendly experience. Contributors to this project can gain valuable expertise in Java programming, web development, and database management while gaining insights into real-world banking systems and operations.
+\\
+
+The Banking Management System project combines the power of Java, Java Servlet, CSS, JavaScript, and SQL databases to create a comprehensive banking solution. It covers key functionalities such as account management, loan requests, bill payments, user registration and login, withdrawal forms, and deposit schemes. This project offers a unique opportunity for developers to enhance their skills in building secure and functional banking applications, while also gaining practical knowledge about banking operations. With its user-friendly interface and robust technology stack, the Banking Management System aims to provide a seamless banking experience for users.}\\
+\\
+\normalsize{\textbf{System Source Code :}} \\
+\normalsize{\ https://github.com/PialKanti/Online-Banking-System }\\
+\\
+\normalsize{\textbf{System Stack :}}\\
+\normalsize{Java Servlets(Java), Javascript,CSS, HTML,SQL }\\
+\\
+\normalsize{\textbf{Repudiation Rationale : }}
+\\
+\\
+\normalsize{\textit{Rational for selecting N :}}
+\\
+\normalsize{
+\\
+* Web-based Interface: N provides a web-based interface, allowing easy access from any device with a web browser. This ensures convenience and accessibility for administrators.
+\\
+* Scalability and Performance: N utilizes Java, known for its scalability and performance capabilities, efficiently handling multiple concurrent requests. This makes it suitable for accommodating a large number of users or high traffic volumes during month's end.
+\\
+* Future Extensibility: By implementing N in Java, it establishes a solid foundation for future expansion and enhancements. The existing codebase serves as a reliable starting point for incorporating new features and adapting to evolving requirements.\\
+}\\
+\normalsize{\textit{ Rational for rejecting N :}}
+\\
+\\
+\normalsize{
+*Security Features: While N utilizes Java's built-in security mechanisms, it lacks proper authentication, authorization, data encryption, and hashing techniques for sensitive information. Due to this deficiency, the system is deemed unfit and rejected, as robust security measures are essential to protect the system from various threats.}
+\\
+\addcontentsline{toc}{subsection}{4.3. Scientific Calculater}
+\subsection*{4.3. Scientific Calculator  \hfill {\normalsize{Piyush Signla - 40234850}}} \\
+\normalsize {\textbf{Project Description:}} \\
+\normalsize {The scientific calculator Java project is a software application that emulates the functionality of a scientific calculator. It is designed to perform complex mathematical calculations and provide accurate results for various scientific and engineering calculations. The project aims to create a user-friendly interface with a wide range of mathematical functions and operations, making it suitable for students, researchers, and professionals in the field of mathematics and science. The scientific calculator project utilizes the power of Java programming language to implement the necessary algorithms and mathematical formulas required for advanced calculations. It leverages object-oriented programming principles to create modular and maintainable code, ensuring easy extensibility and flexibility for future enhancements.}\\
+\\
+\normalsize{\textbf{System Source Code :}} \\
+\normalsize{\ https://github.com/OpeyemiOluwa12/ScientificCalculator}\\
+\\
+\normalsize{\textbf{System Stack :}}\\
+\normalsize{Java, JavaFx, CSS}\\
+\\
+\normalsize{\textbf{Repudiation Rationale : }}\\
+\normalsize{The Java-based scientific calculator project is an intricately crafted and highly advanced software application meticulously designed to faithfully emulate the comprehensive functionality of a scientific calculator. With utmost precision as its guiding principle, this exceptional project sets out to deliver accurate and precise results for even the most complex mathematical calculations, establishing itself as an indispensable tool for individuals immersed in the fields of mathematics and science, be they students, researchers, or seasoned professionals.
+
+Harnessing the formidable power of the Java programming language, this project stands tall, leveraging its robust capabilities to deftly implement a multitude of sophisticated algorithms and mathematical formulas that are fundamental to conducting advanced computations. Through an unwavering commitment to object-oriented programming principles, the project impeccably adheres to the tenets of modularity, maintainability, and extensibility, ensuring that it remains a flexible and adaptable solution for future enhancements, poised to meet the evolving needs and demands of its users.
+
+In its entirety, the Java-based scientific calculator project emerges as an awe-inspiring amalgamation of power and usability, delivering impeccable precision and unwavering reliability across a vast expanse of scientific and engineering calculations. Its user-friendly nature further augments its appeal, affording users of diverse backgrounds the opportunity to effortlessly navigate its features and obtain results that are both reliable and precise. Additionally, this exceptional project offers a promising outlook for future growth and expansion, with its foundation rooted in extensibility, primed to embrace new functionalities and accommodate emerging requirements, thereby ensuring that it remains a stalwart companion on the perpetual quest for scientific and mathematical enlightenment.}
+\\
+\pagebreak
+\addcontentsline{toc}{subsection}{4.4. Student Management System}
+\subsection*{4.4. Student Management System\hfill {\normalsize{Prabhjot Singh - 40220601}}} \\
+\normalsize {\textbf{Project Description:}} \\
+\normalsize {The student management system is a Java application that effectively stores, retrieves, and maintains student data. This includes the student's name, ID, grades, and so on. Other components of the project include adding marks and categorizing pupils based on their rank. Furthermore, pupils with the greatest marks in certain topics are displayed. The project has a lot of room for improvement; additional features such as adding student information, course enrollment, Transcript Management, Reporting and Analytics, and so on can be added.}\\
+\\
+\normalsize{\textbf{System Source Code :}} \\
+\normalsize{\: https://github.com/Pasan-Pahasara/Student-Management-System  }\\
+\\
+\normalsize{\textbf{System Stack :}}\\
+\normalsize{Java, MySql}\\
+\\
+\normalsize{\textbf{Repudiation Rationale : }}\\
+\normalsize{This repository had a few problems. The code is not clean and clustered into a single Java file because of which it is not very easy to understand. There is no description of the project in the repository and the code does not have any Object oriented programming paradigm implemented. The project is not chosen by us as R because project is too small and lacks further room for improvement. 
+We want to concentrate our efforts on the maintenance of the code within the scope of this course, rather than spend countless hours trying to learn multiple new technologies. This would have complicated the end goal of this assignment and most importantly this course.}
+\\
+\pagebreak
+\addcontentsline{toc}{section}{5. Candidate System Descriptions}
+\section*{5. Candidate System Description}
+\normalsize {The Java-based scientific calculator project is an advanced software application that has been meticulously designed to emulate the comprehensive functionality of a scientific calculator. With a strong focus on accuracy and precision, this project aims to deliver reliable and precise results for complex mathematical calculations. It caters to a wide range of users, including students, researchers, and professionals in the fields of mathematics and science, providing them with a valuable tool to perform intricate computations with ease.
+
+Powered by the robust Java programming language, this project leverages its rich features and capabilities to implement sophisticated algorithms and mathematical formulas required for advanced calculations. The project follows the principles of object-oriented programming, ensuring a modular and well-structured codebase that is easy to maintain and extend. This design approach allows for seamless integration of new features and enhancements, providing flexibility and adaptability to meet evolving user needs.
+\\
+
+In summary, the Java-based scientific calculator project offers a powerful and user-friendly solution for various scientific and engineering calculations. It combines the precision of mathematical operations with the convenience of a user-friendly interface, making it accessible to users of different skill levels. With its solid foundation in Java programming and adherence to object-oriented principles, the project is poised for future growth and development, promising continued accuracy, reliability, and usability for those in need of advanced mathematical computations.}\\
+
+\addcontentsline{toc}{section}{6. Candidate System Rationale}
+\section*{6. Candidate System Rationale}
+\normalsize{
+After carefully evaluating the positive points of the scientific calculator Java project and considering its merits, we have identified a strong repudiation rationale for selecting this project. The following key factors support our decision:
+\\
+
+* Model-View-Controller (MVC) Architecture:  \\The project adopts the MVC architectural pattern, which ensures a clear separation of concerns and promotes modular development. This architectural design facilitates code organization, maintainability, and scalability, making it an ideal choice for building complex software systems.\\
+
+* Clean and Maintainable Code: \\The scientific calculator project demonstrates a commitment to clean coding practices, resulting in a well-structured and easily understandable codebase. This aspect not only enhances the project's maintainability but also allows for efficient modifications and updates in the future, ensuring its longevity and adaptability to evolving requirements.\\
+
+* Modularity of Logic and User Interface:  \\By leveraging object-oriented programming principles, the project achieves a high degree of modularity, separating the logic and user interface components. This modular approach enables independent development and modification of different aspects of the calculator, providing flexibility and facilitating easier integration of new features or enhancements.\\
+
+
+Considering these positive aspects, we confidently repudiate alternative projects and select the scientific calculator Java project. Its adherence to MVC architecture, clean codebase, and modularity of logic and UI make it a compelling choice.  This was complex enough for us to have a lot to work on, without being too much where we would get lost in the code. There is not too much spaghetti code, although it may be optimized to fewer lines of code. We also were easily able to locate the 25 undesirables to fix for this system, each team member was able to identify 5 distinct undesirables that we can easily distribute to the team to provide a fix. Lastly, this system was written in large majority in our programming language of choice which is Java. In summary, this system met all the requirements and more and was well structured enough for us to clearly identify our undesirables.
+}\\
+
+\clearpage
+\addcontentsline{toc}{section}{7. References}
+\section*{7. References}
+ \href{https://www.quora.com/How-do-you-define-code-quality}{1. D. Korolev, "How do you define code quality?," 09 02 2014. [Online].}.\\
+ \href{http://www.iso.org/iso/catalogue_detail.htm?csnumber=35733}{2. ISO/IEC 25010:2011," 03 2011. [Online]. }.\\
+ \href{http://www.iso.org/iso/catalogue_detail.htm?csnumber=22749}{3. ISO/IEC 9126-1:2001," 06 2001. [Online]}.\\
+ \href{http://www.w3schools.com/xml/}{XML Tutorial," 2017. [Online].}.\\
+ \href{http://stackoverflow.com/questions/872103/what-is-the-optimal-size-of-a-software-develo}{4. What is the optimal size of a software development team," 16 05 2009. [Online].}\\
+\end{document}
