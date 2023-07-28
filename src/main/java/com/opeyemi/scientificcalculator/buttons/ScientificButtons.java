@@ -33,7 +33,7 @@ public class ScientificButtons {
         HBox row2 = new HBox(10);
         row2.setPrefWidth(350);
         row2.setPadding(new Insets(0, 5, 5, 5));
-        row2.getChildren().addAll(mixedFraction(), sqrt(), sqr(), caret(), log(), in());
+        row2.getChildren().addAll(mixedFraction(), createJFXButton("√", 4), createJFXButton("x^2", 4), createJFXButton("˄", 4), createJFXButton("log", 4), createJFXButton("ln", 2));
         return row2;
 
     }
@@ -42,7 +42,7 @@ public class ScientificButtons {
         HBox row3 = new HBox(10);
         row3.setPrefWidth(350);
         row3.setPadding(new Insets(0, 5, 5, 5));
-        row3.getChildren().addAll(hypen(), dot(), hyp(), sin(), cos(), tan());
+        row3.getChildren().addAll(createJFXButton("(-)", 2), createJFXButton(".", 2), createJFXButton("hyp", 2), createJFXButton("sin", 1), createJFXButton("cos", 1), createJFXButton("tan", 1));
         return row3;
 
     }
@@ -51,7 +51,7 @@ public class ScientificButtons {
         HBox row4 = new HBox(10);
         row4.setPrefWidth(350);
         row4.setPadding(new Insets(0, 5, 5, 5));
-        row4.getChildren().addAll(rcl(), eng(), bracketOpen(), bracketClosed(), coma(), mplus());
+        row4.getChildren().addAll(createJFXButton("RCL", 2), createJFXButton("ENG", 2), createJFXButton("(", 3), createJFXButton(")", 3), createJFXButton(",", 2), createJFXButton("M+", 2));
         return row4;
 
     }
@@ -117,23 +117,7 @@ public class ScientificButtons {
         return comb;
     }
 
-    public JFXButton cbrt() {
-        JFXButton cbrt = new JFXButton("x^3");
-        cbrt.getStyleClass().add("sciButton");
-        cbrt.setTextFill(Color.WHITE);
-        cbrt.setPrefWidth((row.getPrefWidth() / 3) / 3);
-        cbrt.setPrefHeight(20);
-        cbrt.setOnAction((ev) -> {
-            if (CalculateType.getCalculated()) {
-                Screen.getResult().setText("");
-                Screen.getTypeField().setText("");
-                CalculateType.setCalculated(Boolean.FALSE);
-            }
-            Screen.getTypeField().appendText("^3");
-            CalculateType.setType("Normal");
-        });
-        return cbrt;
-    }
+ 
 
     public JFXButton pol() {
         JFXButton pol = new JFXButton("pol(");
@@ -179,242 +163,263 @@ public class ScientificButtons {
                 Screen.getTypeField().setText("");
                 CalculateType.setCalculated(Boolean.FALSE);
             }
-//            typeField.appendText("7");
         });
         return mixedFrac;
     }
 
-    public JFXButton sqrt() {
-        JFXButton sqroot = new JFXButton("√");
-        sqroot.setButtonType(JFXButton.ButtonType.RAISED);
-        sqroot.getStyleClass().add("sciButton");
-        sqroot.setTextFill(Color.WHITE);
-        sqroot.setPrefWidth(row.getPrefWidth() / 6);
-        sqroot.setPrefHeight(20);
-        sqroot.setOnAction((ev) -> {
+
+   public JFXButton cbrt() {
+        JFXButton cbrt = new JFXButton("x^3");
+        cbrt.getStyleClass().add("sciButton");
+        cbrt.setTextFill(Color.WHITE);
+        cbrt.setPrefWidth((row.getPrefWidth() / 3) / 3);
+        cbrt.setPrefHeight(20);
+        cbrt.setOnAction((ev) -> {
             if (CalculateType.getCalculated()) {
                 Screen.getResult().setText("");
                 Screen.getTypeField().setText("");
                 CalculateType.setCalculated(Boolean.FALSE);
             }
+            Screen.getTypeField().appendText("^3");
             CalculateType.setType("Normal");
-            Screen.getTypeField().appendText("√(");
         });
-        return sqroot;
+        return cbrt;
     }
 
-    public JFXButton sqr() {
-        JFXButton sqr = new JFXButton("x^2");
-        sqr.setButtonType(JFXButton.ButtonType.RAISED);
-        sqr.getStyleClass().add("sciButton");
-        sqr.setTextFill(Color.WHITE);
-        sqr.setPrefWidth(row.getPrefWidth() / 6);
-        sqr.setPrefHeight(20);
-        sqr.setOnAction((ev) -> {
-            if (CalculateType.getCalculated()) {
-                Screen.getResult().setText("");
-                Screen.getTypeField().setText("");
-                CalculateType.setCalculated(Boolean.FALSE);
-            }
-            CalculateType.setType("Normal");
-            Screen.getTypeField().appendText("x^2");
-        });
-        return sqr;
-    }
+    //type4
 
-    public JFXButton caret() {
-        JFXButton caret = new JFXButton("˄");
-        caret.getStyleClass().add("sciButton");
-        caret.setTextFill(Color.WHITE);
-        caret.setPrefWidth(row.getPrefWidth() / 6);
-        caret.setPrefHeight(20);
-        caret.setOnAction((ev) -> {
-            if (CalculateType.getCalculated()) {
-                Screen.getResult().setText("");
-                Screen.getTypeField().setText("");
-                CalculateType.setCalculated(Boolean.FALSE);
-            }
-            CalculateType.setType("Normal");
-            Screen.getTypeField().appendText("^");
-        });
-        return caret;
-    }
+    // public JFXButton sqrt() {
+    //     JFXButton sqroot = new JFXButton("√");
+    //     sqroot.setButtonType(JFXButton.ButtonType.RAISED);
+    //     sqroot.getStyleClass().add("sciButton");
+    //     sqroot.setTextFill(Color.WHITE);
+    //     sqroot.setPrefWidth(row.getPrefWidth() / 6);
+    //     sqroot.setPrefHeight(20);
+    //     sqroot.setOnAction((ev) -> {
+    //         if (CalculateType.getCalculated()) {
+    //             Screen.getResult().setText("");
+    //             Screen.getTypeField().setText("");
+    //             CalculateType.setCalculated(Boolean.FALSE);
+    //         }
+    //         CalculateType.setType("Normal");
+    //         Screen.getTypeField().appendText("√(");
+    //     });
+    //     return sqroot;
+    // }
 
-    public JFXButton in() {
-        JFXButton in = new JFXButton("ln");
-        in.setButtonType(JFXButton.ButtonType.RAISED);
-        in.getStyleClass().add("sciButton");
-        in.setTextFill(Color.WHITE);
-        in.setPrefWidth(row.getPrefWidth() / 6);
-        in.setPrefHeight(20);
-        in.setOnAction((ev) -> {
-            if (CalculateType.getCalculated()) {
-                Screen.getResult().setText("");
-                Screen.getTypeField().setText("");
-                CalculateType.setCalculated(Boolean.FALSE);
-            }
-        });
-        return in;
-    }
+    // public JFXButton sqr() {
+    //     JFXButton sqr = new JFXButton("x^2");
+    //     sqr.setButtonType(JFXButton.ButtonType.RAISED);
+    //     sqr.getStyleClass().add("sciButton");
+    //     sqr.setTextFill(Color.WHITE);
+    //     sqr.setPrefWidth(row.getPrefWidth() / 6);
+    //     sqr.setPrefHeight(20);
+    //     sqr.setOnAction((ev) -> {
+    //         if (CalculateType.getCalculated()) {
+    //             Screen.getResult().setText("");
+    //             Screen.getTypeField().setText("");
+    //             CalculateType.setCalculated(Boolean.FALSE);
+    //         }
+    //         CalculateType.setType("Normal");
+    //         Screen.getTypeField().appendText("x^2");
+    //     });
+    //     return sqr;
+    // }
 
-    public JFXButton log() {
-        JFXButton log = new JFXButton("log");
-        log.setButtonType(JFXButton.ButtonType.RAISED);
-        log.getStyleClass().add("sciButton");
-        log.setTextFill(Color.WHITE);
-        log.setPrefWidth(row.getPrefWidth() / 6);
-        log.setPrefHeight(20);
-        log.setOnAction((ev) -> {
-            if (CalculateType.getCalculated()) {
-                Screen.getResult().setText("");
-                Screen.getTypeField().setText("");
-                CalculateType.setCalculated(Boolean.FALSE);
-            }
-            CalculateType.setType("Scientific");
-            Screen.getTypeField().appendText("log(");
-        });
-        return log;
-    }
+    // public JFXButton caret() {
+    //     JFXButton caret = new JFXButton("˄");
+    //     caret.getStyleClass().add("sciButton");
+    //     caret.setTextFill(Color.WHITE);
+    //     caret.setPrefWidth(row.getPrefWidth() / 6);
+    //     caret.setPrefHeight(20);
+    //     caret.setOnAction((ev) -> {
+    //         if (CalculateType.getCalculated()) {
+    //             Screen.getResult().setText("");
+    //             Screen.getTypeField().setText("");
+    //             CalculateType.setCalculated(Boolean.FALSE);
+    //         }
+    //         CalculateType.setType("Normal");
+    //         Screen.getTypeField().appendText("^");
+    //     });
+    //     return caret;
+    // }
 
-    public JFXButton rcl() {
-        JFXButton rcl = new JFXButton("RCL");
-        rcl.setButtonType(JFXButton.ButtonType.RAISED);
-        rcl.getStyleClass().add("sciButton");
-        rcl.setTextFill(Color.WHITE);
-        rcl.setPrefWidth(row.getPrefWidth() / 6);
-        rcl.setPrefHeight(20);
-        rcl.setOnAction((ev) -> {
-            if (CalculateType.getCalculated()) {
-                Screen.getResult().setText("");
-                Screen.getTypeField().setText("");
-                CalculateType.setCalculated(Boolean.FALSE);
-            }
-        });
-        return rcl;
-    }
+    // public JFXButton log() {
+    //     JFXButton log = new JFXButton("log");
+    //     log.setButtonType(JFXButton.ButtonType.RAISED);
+    //     log.getStyleClass().add("sciButton");
+    //     log.setTextFill(Color.WHITE);
+    //     log.setPrefWidth(row.getPrefWidth() / 6);
+    //     log.setPrefHeight(20);
+    //     log.setOnAction((ev) -> {
+    //         if (CalculateType.getCalculated()) {
+    //             Screen.getResult().setText("");
+    //             Screen.getTypeField().setText("");
+    //             CalculateType.setCalculated(Boolean.FALSE);
+    //         }
+    //         CalculateType.setType("Scientific");
+    //         Screen.getTypeField().appendText("log(");
+    //     });
+    //     return log;
+    // }
 
-    public JFXButton eng() {
-        JFXButton eng = new JFXButton("ENG");
-        eng.setButtonType(JFXButton.ButtonType.RAISED);
-        eng.getStyleClass().add("sciButton");
-        eng.setTextFill(Color.WHITE);
-        eng.setPrefWidth(row.getPrefWidth() / 6);
-        eng.setPrefHeight(20);
-        eng.setOnAction((ev) -> {
-            if (CalculateType.getCalculated()) {
-                Screen.getResult().setText("");
-                Screen.getTypeField().setText("");
-                CalculateType.setCalculated(Boolean.FALSE);
-            }
-        });
-        return eng;
-    }
+// //type3  createJFXButton("(", 3)
+//     public JFXButton bracketOpen() {
+//         JFXButton bracketOpen = new JFXButton("(");
+//         bracketOpen.setButtonType(JFXButton.ButtonType.RAISED);
+//         bracketOpen.getStyleClass().add("sciButton");
+//         bracketOpen.setTextFill(Color.WHITE);
+//         bracketOpen.setPrefWidth(row.getPrefWidth() / 6);
+//         bracketOpen.setPrefHeight(20);
+//         bracketOpen.setOnAction((ev) -> {
+//             if (CalculateType.getCalculated()) {
+//                 Screen.getResult().setText("");
+//                 Screen.getTypeField().setText("");
+//                 CalculateType.setCalculated(Boolean.FALSE);
+//             }           
+//             Screen.getTypeField().appendText("(");
+//         });
+//         return bracketOpen;
+//     }
 
-    public JFXButton bracketOpen() {
-        JFXButton bracketOpen = new JFXButton("(");
-        bracketOpen.setButtonType(JFXButton.ButtonType.RAISED);
-        bracketOpen.getStyleClass().add("sciButton");
-        bracketOpen.setTextFill(Color.WHITE);
-        bracketOpen.setPrefWidth(row.getPrefWidth() / 6);
-        bracketOpen.setPrefHeight(20);
-        bracketOpen.setOnAction((ev) -> {
-            if (CalculateType.getCalculated()) {
-                Screen.getResult().setText("");
-                Screen.getTypeField().setText("");
-                CalculateType.setCalculated(Boolean.FALSE);
-            }           
-            Screen.getTypeField().appendText("(");
-        });
-        return bracketOpen;
-    }
+//     public JFXButton bracketClosed() {
+//         JFXButton bracketClosed = new JFXButton(")");
+//         bracketClosed.setButtonType(JFXButton.ButtonType.RAISED);
+//         bracketClosed.getStyleClass().add("sciButton");
+//         bracketClosed.setTextFill(Color.WHITE);
+//         bracketClosed.setPrefWidth(row.getPrefWidth() / 6);
+//         bracketClosed.setPrefHeight(20);
+//         bracketClosed.setOnAction((ev) -> {
+//             if (CalculateType.getCalculated()) {
+//                 Screen.getResult().setText("");
+//                 Screen.getTypeField().setText("");
+//                 CalculateType.setCalculated(Boolean.FALSE);
+//             }
+//             Screen.getTypeField().appendText(")");
+//         });
+//         return bracketClosed;
+//     }
+// //type2   createJFXButton("ln", 2)
+    // public JFXButton in() {
+    //     JFXButton in = new JFXButton("ln");
+    //     in.setButtonType(JFXButton.ButtonType.RAISED);
+    //     in.getStyleClass().add("sciButton");
+    //     in.setTextFill(Color.WHITE);
+    //     in.setPrefWidth(row.getPrefWidth() / 6);
+    //     in.setPrefHeight(20);
+    //     in.setOnAction((ev) -> {
+    //         if (CalculateType.getCalculated()) {
+    //             Screen.getResult().setText("");
+    //             Screen.getTypeField().setText("");
+    //             CalculateType.setCalculated(Boolean.FALSE);
+    //         }
+    //     });
+    //     return in;
+    // }
 
-    public JFXButton bracketClosed() {
-        JFXButton bracketClosed = new JFXButton(")");
-        bracketClosed.setButtonType(JFXButton.ButtonType.RAISED);
-        bracketClosed.getStyleClass().add("sciButton");
-        bracketClosed.setTextFill(Color.WHITE);
-        bracketClosed.setPrefWidth(row.getPrefWidth() / 6);
-        bracketClosed.setPrefHeight(20);
-        bracketClosed.setOnAction((ev) -> {
-            if (CalculateType.getCalculated()) {
-                Screen.getResult().setText("");
-                Screen.getTypeField().setText("");
-                CalculateType.setCalculated(Boolean.FALSE);
-            }
-            Screen.getTypeField().appendText(")");
-        });
-        return bracketClosed;
-    }
+    // public JFXButton rcl() {
+    //     JFXButton rcl = new JFXButton("RCL");
+    //     rcl.setButtonType(JFXButton.ButtonType.RAISED);
+    //     rcl.getStyleClass().add("sciButton");
+    //     rcl.setTextFill(Color.WHITE);
+    //     rcl.setPrefWidth(row.getPrefWidth() / 6);
+    //     rcl.setPrefHeight(20);
+    //     rcl.setOnAction((ev) -> {
+    //         if (CalculateType.getCalculated()) {
+    //             Screen.getResult().setText("");
+    //             Screen.getTypeField().setText("");
+    //             CalculateType.setCalculated(Boolean.FALSE);
+    //         }
+    //     });
+    //     return rcl;
+    // }
 
-    public JFXButton coma() {
-        JFXButton coma = new JFXButton("٬");
-        coma.setButtonType(JFXButton.ButtonType.RAISED);
-        coma.getStyleClass().add("sciButton");
-        coma.setTextFill(Color.WHITE);
-        coma.setPrefWidth(row.getPrefWidth() / 6);
-        coma.setPrefHeight(20);
-        coma.setOnAction((ev) -> {
-            if (CalculateType.getCalculated()) {
-                Screen.getResult().setText("");
-                Screen.getTypeField().setText("");
-                CalculateType.setCalculated(Boolean.FALSE);
-            }
-        });
-        return coma;
-    }
+    // public JFXButton eng() {
+    //     JFXButton eng = new JFXButton("ENG");
+    //     eng.setButtonType(JFXButton.ButtonType.RAISED);
+    //     eng.getStyleClass().add("sciButton");
+    //     eng.setTextFill(Color.WHITE);
+    //     eng.setPrefWidth(row.getPrefWidth() / 6);
+    //     eng.setPrefHeight(20);
+    //     eng.setOnAction((ev) -> {
+    //         if (CalculateType.getCalculated()) {
+    //             Screen.getResult().setText("");
+    //             Screen.getTypeField().setText("");
+    //             CalculateType.setCalculated(Boolean.FALSE);
+    //         }
+    //     });
+    //     return eng;
+    // }
 
-    public JFXButton mplus() {
-        JFXButton mplus = new JFXButton("M+");
-        mplus.setButtonType(JFXButton.ButtonType.RAISED);
-        mplus.getStyleClass().add("sciButton");
-        mplus.setTextFill(Color.WHITE);
-        mplus.setPrefWidth(row.getPrefWidth() / 6);
-        mplus.setPrefHeight(20);
-        mplus.setOnAction((ev) -> {
-            if (CalculateType.getCalculated()) {
-                Screen.getResult().setText("");
-                Screen.getTypeField().setText("");
-                CalculateType.setCalculated(Boolean.FALSE);
-            }
-        });
-        return mplus;
-    }
+    // public JFXButton coma() {
+    //     JFXButton coma = new JFXButton("٬");
+    //     coma.setButtonType(JFXButton.ButtonType.RAISED);
+    //     coma.getStyleClass().add("sciButton");
+    //     coma.setTextFill(Color.WHITE);
+    //     coma.setPrefWidth(row.getPrefWidth() / 6);
+    //     coma.setPrefHeight(20);
+    //     coma.setOnAction((ev) -> {
+    //         if (CalculateType.getCalculated()) {
+    //             Screen.getResult().setText("");
+    //             Screen.getTypeField().setText("");
+    //             CalculateType.setCalculated(Boolean.FALSE);
+    //         }
+    //     });
+    //     return coma;
+    // }
 
-    public JFXButton hypen() {
-        JFXButton hypen = new JFXButton("(-)");
-        hypen.setButtonType(JFXButton.ButtonType.RAISED);
-        hypen.getStyleClass().add("sciButton");
-        hypen.setTextFill(Color.WHITE);
-        hypen.setPrefWidth(row.getPrefWidth() / 6);
-        hypen.setPrefHeight(20);
-        hypen.setOnAction((ev) -> {
-            if (CalculateType.getCalculated()) {
-                Screen.getResult().setText("");
-                Screen.getTypeField().setText("");
-                CalculateType.setCalculated(Boolean.FALSE);
-            }
-        });
-        return hypen;
-    }
+    // public JFXButton mplus() {
+    //     JFXButton mplus = new JFXButton("M+");
+    //     mplus.setButtonType(JFXButton.ButtonType.RAISED);
+    //     mplus.getStyleClass().add("sciButton");
+    //     mplus.setTextFill(Color.WHITE);
+    //     mplus.setPrefWidth(row.getPrefWidth() / 6);
+    //     mplus.setPrefHeight(20);
+    //     mplus.setOnAction((ev) -> {
+    //         if (CalculateType.getCalculated()) {
+    //             Screen.getResult().setText("");
+    //             Screen.getTypeField().setText("");
+    //             CalculateType.setCalculated(Boolean.FALSE);
+    //         }
+    //     });
+    //     return mplus;
+    // }
 
-    public JFXButton dot() {
-        JFXButton dot = new JFXButton("۰٬٬٬");
-        dot.setButtonType(JFXButton.ButtonType.RAISED);
-        dot.getStyleClass().add("sciButton");
-        dot.setTextFill(Color.WHITE);
-        dot.setPrefWidth(row.getPrefWidth() / 6);
-        dot.setPrefHeight(20);
-        dot.setOnAction((ev) -> {
-            if (CalculateType.getCalculated()) {
-                Screen.getResult().setText("");
-                Screen.getTypeField().setText("");
-                CalculateType.setCalculated(Boolean.FALSE);
-            }
-        });
-        return dot;
-    }
+    // public JFXButton hypen() {
+    //     JFXButton hypen = new JFXButton("(-)");
+    //     hypen.setButtonType(JFXButton.ButtonType.RAISED);
+    //     hypen.getStyleClass().add("sciButton");
+    //     hypen.setTextFill(Color.WHITE);
+    //     hypen.setPrefWidth(row.getPrefWidth() / 6);
+    //     hypen.setPrefHeight(20);
+    //     hypen.setOnAction((ev) -> {
+    //         if (CalculateType.getCalculated()) {
+    //             Screen.getResult().setText("");
+    //             Screen.getTypeField().setText("");
+    //             CalculateType.setCalculated(Boolean.FALSE);
+    //         }
+    //     });
+    //     return hypen;
+    // }
 
-    public JFXButton hyp() {
+    // public JFXButton dot() {
+    //     JFXButton dot = new JFXButton("۰٬٬٬");
+    //     dot.setButtonType(JFXButton.ButtonType.RAISED);
+    //     dot.getStyleClass().add("sciButton");
+    //     dot.setTextFill(Color.WHITE);
+    //     dot.setPrefWidth(row.getPrefWidth() / 6);
+    //     dot.setPrefHeight(20);
+    //     dot.setOnAction((ev) -> {
+    //         if (CalculateType.getCalculated()) {
+    //             Screen.getResult().setText("");
+    //             Screen.getTypeField().setText("");
+    //             CalculateType.setCalculated(Boolean.FALSE);
+    //         }
+    //     });
+    //     return dot;
+    // }
+
+    // public JFXButton hyp() {
         JFXButton hyp = new JFXButton("hyp");
         hyp.setButtonType(JFXButton.ButtonType.RAISED);
         hyp.getStyleClass().add("sciButton");
@@ -430,15 +435,87 @@ public class ScientificButtons {
         });
         return hyp;
     }
+// //type1   createJFXButton("sin", 1)
+//     public JFXButton sin() {
+//         JFXButton sin = new JFXButton("sin");
+//         sin.setButtonType(JFXButton.ButtonType.RAISED);
+//         sin.getStyleClass().add("sciButton");
+//         sin.setTextFill(Color.WHITE);
+//         sin.setPrefWidth(row.getPrefWidth() / 6);
+//         sin.setPrefHeight(20);
+//         sin.setOnAction((ev) -> {
+//             if (CalculateType.getCalculated()) {
+//                 Screen.getResult().setText("");
+//                 Screen.getTypeField().setText("");
+//                 CalculateType.setCalculated(Boolean.FALSE);
+//             }
+//             CalculateType.setType("Scientific");
+//             if (CalculateType.getShifMode()) {
+//                 Screen.getTypeField().appendText("sin-1(");
+//             } else {
+//                 Screen.getTypeField().appendText("sin(");
+//             }
+//         });
+//         return sin;
+//     }
 
-    public JFXButton sin() {
-        JFXButton sin = new JFXButton("sin");
-        sin.setButtonType(JFXButton.ButtonType.RAISED);
-        sin.getStyleClass().add("sciButton");
-        sin.setTextFill(Color.WHITE);
-        sin.setPrefWidth(row.getPrefWidth() / 6);
-        sin.setPrefHeight(20);
-        sin.setOnAction((ev) -> {
+//     public JFXButton tan() {
+//         JFXButton tan = new JFXButton("tan");
+//         tan.setButtonType(JFXButton.ButtonType.RAISED);
+//         tan.getStyleClass().add("sciButton");
+//         tan.setTextFill(Color.WHITE);
+//         tan.setPrefWidth(row.getPrefWidth() / 6);
+//         tan.setPrefHeight(20);
+//         tan.setOnAction((ev) -> {
+//             if (CalculateType.getCalculated()) {
+//                 Screen.getResult().setText("");
+//                 Screen.getTypeField().setText("");
+//                 CalculateType.setCalculated(Boolean.FALSE);
+//             }
+//             CalculateType.setType("Scientific");
+//             if (CalculateType.getShifMode()) {
+//                 Screen.getTypeField().appendText("sin-1(");
+//             } else {
+//                 Screen.getTypeField().appendText("sin(");
+//             }
+//         });
+//         return tan;
+//     }
+
+//     public JFXButton cos() {
+//         JFXButton cos = new JFXButton("cos");
+//         cos.setButtonType(JFXButton.ButtonType.RAISED);
+//         cos.getStyleClass().add("sciButton");
+//         cos.setTextFill(Color.WHITE);
+//         cos.setPrefWidth(row.getPrefWidth() / 6);
+//         cos.setPrefHeight(20);
+//         cos.setOnAction((ev) -> {
+//             if (CalculateType.getCalculated()) {
+//                 Screen.getResult().setText("");
+//                 Screen.getTypeField().setText("");
+//                 CalculateType.setCalculated(Boolean.FALSE);
+//             }
+//             CalculateType.setType("Scientific");
+//             if (CalculateType.getShifMode()) {
+//                 Screen.getTypeField().appendText("cos-1(");
+//             } else {
+//                 Screen.getTypeField().appendText("cos(");
+//             }
+//         });
+//         return cos;
+//     }
+
+      public JFXButton createJFXButton(String label, int type) {
+        JFXButton button = new JFXButton(label);
+        button.setButtonType(JFXButton.ButtonType.RAISED);
+        button.getStyleClass().add(label);
+        button.setTextFill(Color.WHITE);
+        button.setPrefWidth(row.getPrefWidth() / 6);
+        button.setPrefHeight(20);
+
+        if( type == 1 )
+        {
+            button.setOnAction((ev) -> {
             if (CalculateType.getCalculated()) {
                 Screen.getResult().setText("");
                 Screen.getTypeField().setText("");
@@ -446,58 +523,45 @@ public class ScientificButtons {
             }
             CalculateType.setType("Scientific");
             if (CalculateType.getShifMode()) {
-                Screen.getTypeField().appendText("sin-1(");
+                Screen.getTypeField().appendText(label+"-1(");
             } else {
-                Screen.getTypeField().appendText("sin(");
+                Screen.getTypeField().appendText(label+"(");
             }
         });
-        return sin;
-    }
-
-    public JFXButton tan() {
-        JFXButton tan = new JFXButton("tan");
-        tan.setButtonType(JFXButton.ButtonType.RAISED);
-        tan.getStyleClass().add("sciButton");
-        tan.setTextFill(Color.WHITE);
-        tan.setPrefWidth(row.getPrefWidth() / 6);
-        tan.setPrefHeight(20);
-        tan.setOnAction((ev) -> {
+        }
+        else if( type == 3) {
+             button.setOnAction((ev) -> {
+            if (CalculateType.getCalculated()) {
+                Screen.getResult().setText("");
+                Screen.getTypeField().setText("");
+                CalculateType.setCalculated(Boolean.FALSE);
+            }
+            Screen.getTypeField().appendText(label);
+        });
+        }
+        else if( type == 4 ){
+             button.setOnAction((ev) -> {
             if (CalculateType.getCalculated()) {
                 Screen.getResult().setText("");
                 Screen.getTypeField().setText("");
                 CalculateType.setCalculated(Boolean.FALSE);
             }
             CalculateType.setType("Scientific");
-            if (CalculateType.getShifMode()) {
-                Screen.getTypeField().appendText("sin-1(");
-            } else {
-                Screen.getTypeField().appendText("sin(");
-            }
+            Screen.getTypeField().appendText(label+"(");
         });
-        return tan;
-    }
-
-    public JFXButton cos() {
-        JFXButton cos = new JFXButton("cos");
-        cos.setButtonType(JFXButton.ButtonType.RAISED);
-        cos.getStyleClass().add("sciButton");
-        cos.setTextFill(Color.WHITE);
-        cos.setPrefWidth(row.getPrefWidth() / 6);
-        cos.setPrefHeight(20);
-        cos.setOnAction((ev) -> {
+        }
+        else{
+            button.setOnAction((ev) -> {
             if (CalculateType.getCalculated()) {
                 Screen.getResult().setText("");
                 Screen.getTypeField().setText("");
                 CalculateType.setCalculated(Boolean.FALSE);
             }
-            CalculateType.setType("Scientific");
-            if (CalculateType.getShifMode()) {
-                Screen.getTypeField().appendText("cos-1(");
-            } else {
-                Screen.getTypeField().appendText("cos(");
-            }
         });
-        return cos;
+        }
+
+        return button;
+       
     }
 
 }
