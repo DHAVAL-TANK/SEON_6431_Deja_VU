@@ -17,7 +17,10 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 
 /**
- *
+ * This class represents a set of scientific buttons for the calculator UI.
+ * It provides methods to create different rows of buttons for scientific operations.
+ * The buttons are implemented using the JFXButton class from JFoenix library.
+ * Each button has its own functionality and event handlers to perform the desired operation.
  * @author Idris Opeyemi
  */
 public class ScientificButtons {
@@ -29,6 +32,11 @@ public class ScientificButtons {
         row.setPrefWidth(350);
     }
 
+    /**
+     * Creates the second row of scientific buttons.
+     *
+     * @return HBox containing the second row of scientific buttons
+     */
     public HBox row2() {
         HBox row2 = new HBox(10);
         row2.setPrefWidth(350);
@@ -38,6 +46,11 @@ public class ScientificButtons {
 
     }
 
+    /**
+     * Creates the third row of scientific buttons.
+     *
+     * @return HBox containing the third row of scientific buttons
+     */
     public HBox row3() {
         HBox row3 = new HBox(10);
         row3.setPrefWidth(350);
@@ -47,6 +60,11 @@ public class ScientificButtons {
 
     }
 
+    /**
+     * Creates the fourth row of scientific buttons.
+     *
+     * @return HBox containing the fourth row of scientific buttons
+     */
     public HBox row4() {
         HBox row4 = new HBox(10);
         row4.setPrefWidth(350);
@@ -56,6 +74,11 @@ public class ScientificButtons {
 
     }
 
+    /**
+     * Creates the first half of the first row of scientific buttons.
+     *
+     * @return HBox containing the first half of the first row of scientific buttons
+     */
     public HBox halfRow1() {
         HBox row1 = new HBox(10);
         row1.setPrefWidth(350 / 3);
@@ -64,6 +87,11 @@ public class ScientificButtons {
 
     }
 
+    /**
+     * Creates the second half of the first row of scientific buttons.
+     *
+     * @return HBox containing the second half of the first row of scientific buttons
+     */
     public HBox half2Row() {
         HBox row1 = new HBox(10);
         row1.setPrefWidth(350 / 3);
@@ -72,6 +100,11 @@ public class ScientificButtons {
         return row1;
     }
 
+    /**
+     * Creates the button for factorial operation.
+     *
+     * @return JFXButton for factorial operation
+     */
     public JFXButton minusPower() {
         Solve solve = new Solve();
         JFXButton minusPower = new JFXButton("");
@@ -93,6 +126,11 @@ public class ScientificButtons {
         return minusPower;
     }
 
+    /**
+     * Creates the button for combination operation.
+     *
+     * @return JFXButton for combination operation
+     */
     public JFXButton comb() {
         JFXButton comb = new JFXButton("nCr");
         comb.setButtonType(JFXButton.ButtonType.RAISED);
@@ -117,8 +155,11 @@ public class ScientificButtons {
         return comb;
     }
 
- 
-
+    /**
+     * Creates the button for pol operation.
+     *
+     * @return JFXButton for pol operation
+     */
     public JFXButton pol() {
         JFXButton pol = new JFXButton("pol(");
         pol.setButtonType(JFXButton.ButtonType.RAISED);
@@ -143,6 +184,11 @@ public class ScientificButtons {
         return pol;
     }
 
+    /**
+     * Creates the button for mixed fractions.
+     *
+     * @return JFXButton for mixed fractions
+     */
     public JFXButton mixedFraction() {
         Text biga = new Text("a");
         Text small = new Text(" b/c");
@@ -167,7 +213,11 @@ public class ScientificButtons {
         return mixedFrac;
     }
 
-
+    /**
+     * Creates the button for cube root operation.
+     *
+     * @return JFXButton for cube root operation
+     */
    public JFXButton cbrt() {
         JFXButton cbrt = new JFXButton("x^3");
         cbrt.getStyleClass().add("sciButton");
@@ -186,325 +236,13 @@ public class ScientificButtons {
         return cbrt;
     }
 
-    //type4
-
-    // public JFXButton sqrt() {
-    //     JFXButton sqroot = new JFXButton("√");
-    //     sqroot.setButtonType(JFXButton.ButtonType.RAISED);
-    //     sqroot.getStyleClass().add("sciButton");
-    //     sqroot.setTextFill(Color.WHITE);
-    //     sqroot.setPrefWidth(row.getPrefWidth() / 6);
-    //     sqroot.setPrefHeight(20);
-    //     sqroot.setOnAction((ev) -> {
-    //         if (CalculateType.getCalculated()) {
-    //             Screen.getResult().setText("");
-    //             Screen.getTypeField().setText("");
-    //             CalculateType.setCalculated(Boolean.FALSE);
-    //         }
-    //         CalculateType.setType("Normal");
-    //         Screen.getTypeField().appendText("√(");
-    //     });
-    //     return sqroot;
-    // }
-
-    // public JFXButton sqr() {
-    //     JFXButton sqr = new JFXButton("x^2");
-    //     sqr.setButtonType(JFXButton.ButtonType.RAISED);
-    //     sqr.getStyleClass().add("sciButton");
-    //     sqr.setTextFill(Color.WHITE);
-    //     sqr.setPrefWidth(row.getPrefWidth() / 6);
-    //     sqr.setPrefHeight(20);
-    //     sqr.setOnAction((ev) -> {
-    //         if (CalculateType.getCalculated()) {
-    //             Screen.getResult().setText("");
-    //             Screen.getTypeField().setText("");
-    //             CalculateType.setCalculated(Boolean.FALSE);
-    //         }
-    //         CalculateType.setType("Normal");
-    //         Screen.getTypeField().appendText("x^2");
-    //     });
-    //     return sqr;
-    // }
-
-    // public JFXButton caret() {
-    //     JFXButton caret = new JFXButton("˄");
-    //     caret.getStyleClass().add("sciButton");
-    //     caret.setTextFill(Color.WHITE);
-    //     caret.setPrefWidth(row.getPrefWidth() / 6);
-    //     caret.setPrefHeight(20);
-    //     caret.setOnAction((ev) -> {
-    //         if (CalculateType.getCalculated()) {
-    //             Screen.getResult().setText("");
-    //             Screen.getTypeField().setText("");
-    //             CalculateType.setCalculated(Boolean.FALSE);
-    //         }
-    //         CalculateType.setType("Normal");
-    //         Screen.getTypeField().appendText("^");
-    //     });
-    //     return caret;
-    // }
-
-    // public JFXButton log() {
-    //     JFXButton log = new JFXButton("log");
-    //     log.setButtonType(JFXButton.ButtonType.RAISED);
-    //     log.getStyleClass().add("sciButton");
-    //     log.setTextFill(Color.WHITE);
-    //     log.setPrefWidth(row.getPrefWidth() / 6);
-    //     log.setPrefHeight(20);
-    //     log.setOnAction((ev) -> {
-    //         if (CalculateType.getCalculated()) {
-    //             Screen.getResult().setText("");
-    //             Screen.getTypeField().setText("");
-    //             CalculateType.setCalculated(Boolean.FALSE);
-    //         }
-    //         CalculateType.setType("Scientific");
-    //         Screen.getTypeField().appendText("log(");
-    //     });
-    //     return log;
-    // }
-
-// //type3  createJFXButton("(", 3)
-//     public JFXButton bracketOpen() {
-//         JFXButton bracketOpen = new JFXButton("(");
-//         bracketOpen.setButtonType(JFXButton.ButtonType.RAISED);
-//         bracketOpen.getStyleClass().add("sciButton");
-//         bracketOpen.setTextFill(Color.WHITE);
-//         bracketOpen.setPrefWidth(row.getPrefWidth() / 6);
-//         bracketOpen.setPrefHeight(20);
-//         bracketOpen.setOnAction((ev) -> {
-//             if (CalculateType.getCalculated()) {
-//                 Screen.getResult().setText("");
-//                 Screen.getTypeField().setText("");
-//                 CalculateType.setCalculated(Boolean.FALSE);
-//             }           
-//             Screen.getTypeField().appendText("(");
-//         });
-//         return bracketOpen;
-//     }
-
-//     public JFXButton bracketClosed() {
-//         JFXButton bracketClosed = new JFXButton(")");
-//         bracketClosed.setButtonType(JFXButton.ButtonType.RAISED);
-//         bracketClosed.getStyleClass().add("sciButton");
-//         bracketClosed.setTextFill(Color.WHITE);
-//         bracketClosed.setPrefWidth(row.getPrefWidth() / 6);
-//         bracketClosed.setPrefHeight(20);
-//         bracketClosed.setOnAction((ev) -> {
-//             if (CalculateType.getCalculated()) {
-//                 Screen.getResult().setText("");
-//                 Screen.getTypeField().setText("");
-//                 CalculateType.setCalculated(Boolean.FALSE);
-//             }
-//             Screen.getTypeField().appendText(")");
-//         });
-//         return bracketClosed;
-//     }
-// //type2   createJFXButton("ln", 2)
-    // public JFXButton in() {
-    //     JFXButton in = new JFXButton("ln");
-    //     in.setButtonType(JFXButton.ButtonType.RAISED);
-    //     in.getStyleClass().add("sciButton");
-    //     in.setTextFill(Color.WHITE);
-    //     in.setPrefWidth(row.getPrefWidth() / 6);
-    //     in.setPrefHeight(20);
-    //     in.setOnAction((ev) -> {
-    //         if (CalculateType.getCalculated()) {
-    //             Screen.getResult().setText("");
-    //             Screen.getTypeField().setText("");
-    //             CalculateType.setCalculated(Boolean.FALSE);
-    //         }
-    //     });
-    //     return in;
-    // }
-
-    // public JFXButton rcl() {
-    //     JFXButton rcl = new JFXButton("RCL");
-    //     rcl.setButtonType(JFXButton.ButtonType.RAISED);
-    //     rcl.getStyleClass().add("sciButton");
-    //     rcl.setTextFill(Color.WHITE);
-    //     rcl.setPrefWidth(row.getPrefWidth() / 6);
-    //     rcl.setPrefHeight(20);
-    //     rcl.setOnAction((ev) -> {
-    //         if (CalculateType.getCalculated()) {
-    //             Screen.getResult().setText("");
-    //             Screen.getTypeField().setText("");
-    //             CalculateType.setCalculated(Boolean.FALSE);
-    //         }
-    //     });
-    //     return rcl;
-    // }
-
-    // public JFXButton eng() {
-    //     JFXButton eng = new JFXButton("ENG");
-    //     eng.setButtonType(JFXButton.ButtonType.RAISED);
-    //     eng.getStyleClass().add("sciButton");
-    //     eng.setTextFill(Color.WHITE);
-    //     eng.setPrefWidth(row.getPrefWidth() / 6);
-    //     eng.setPrefHeight(20);
-    //     eng.setOnAction((ev) -> {
-    //         if (CalculateType.getCalculated()) {
-    //             Screen.getResult().setText("");
-    //             Screen.getTypeField().setText("");
-    //             CalculateType.setCalculated(Boolean.FALSE);
-    //         }
-    //     });
-    //     return eng;
-    // }
-
-    // public JFXButton coma() {
-    //     JFXButton coma = new JFXButton("٬");
-    //     coma.setButtonType(JFXButton.ButtonType.RAISED);
-    //     coma.getStyleClass().add("sciButton");
-    //     coma.setTextFill(Color.WHITE);
-    //     coma.setPrefWidth(row.getPrefWidth() / 6);
-    //     coma.setPrefHeight(20);
-    //     coma.setOnAction((ev) -> {
-    //         if (CalculateType.getCalculated()) {
-    //             Screen.getResult().setText("");
-    //             Screen.getTypeField().setText("");
-    //             CalculateType.setCalculated(Boolean.FALSE);
-    //         }
-    //     });
-    //     return coma;
-    // }
-
-    // public JFXButton mplus() {
-    //     JFXButton mplus = new JFXButton("M+");
-    //     mplus.setButtonType(JFXButton.ButtonType.RAISED);
-    //     mplus.getStyleClass().add("sciButton");
-    //     mplus.setTextFill(Color.WHITE);
-    //     mplus.setPrefWidth(row.getPrefWidth() / 6);
-    //     mplus.setPrefHeight(20);
-    //     mplus.setOnAction((ev) -> {
-    //         if (CalculateType.getCalculated()) {
-    //             Screen.getResult().setText("");
-    //             Screen.getTypeField().setText("");
-    //             CalculateType.setCalculated(Boolean.FALSE);
-    //         }
-    //     });
-    //     return mplus;
-    // }
-
-    // public JFXButton hypen() {
-    //     JFXButton hypen = new JFXButton("(-)");
-    //     hypen.setButtonType(JFXButton.ButtonType.RAISED);
-    //     hypen.getStyleClass().add("sciButton");
-    //     hypen.setTextFill(Color.WHITE);
-    //     hypen.setPrefWidth(row.getPrefWidth() / 6);
-    //     hypen.setPrefHeight(20);
-    //     hypen.setOnAction((ev) -> {
-    //         if (CalculateType.getCalculated()) {
-    //             Screen.getResult().setText("");
-    //             Screen.getTypeField().setText("");
-    //             CalculateType.setCalculated(Boolean.FALSE);
-    //         }
-    //     });
-    //     return hypen;
-    // }
-
-    // public JFXButton dot() {
-    //     JFXButton dot = new JFXButton("۰٬٬٬");
-    //     dot.setButtonType(JFXButton.ButtonType.RAISED);
-    //     dot.getStyleClass().add("sciButton");
-    //     dot.setTextFill(Color.WHITE);
-    //     dot.setPrefWidth(row.getPrefWidth() / 6);
-    //     dot.setPrefHeight(20);
-    //     dot.setOnAction((ev) -> {
-    //         if (CalculateType.getCalculated()) {
-    //             Screen.getResult().setText("");
-    //             Screen.getTypeField().setText("");
-    //             CalculateType.setCalculated(Boolean.FALSE);
-    //         }
-    //     });
-    //     return dot;
-    // }
-
-    // public JFXButton hyp() {
-        JFXButton hyp = new JFXButton("hyp");
-        hyp.setButtonType(JFXButton.ButtonType.RAISED);
-        hyp.getStyleClass().add("sciButton");
-        hyp.setTextFill(Color.WHITE);
-        hyp.setPrefWidth(row.getPrefWidth() / 6);
-        hyp.setPrefHeight(20);
-        hyp.setOnAction((ev) -> {
-            if (CalculateType.getCalculated()) {
-                Screen.getResult().setText("");
-                Screen.getTypeField().setText("");
-                CalculateType.setCalculated(Boolean.FALSE);
-            }
-        });
-        return hyp;
-    }
-// //type1   createJFXButton("sin", 1)
-//     public JFXButton sin() {
-//         JFXButton sin = new JFXButton("sin");
-//         sin.setButtonType(JFXButton.ButtonType.RAISED);
-//         sin.getStyleClass().add("sciButton");
-//         sin.setTextFill(Color.WHITE);
-//         sin.setPrefWidth(row.getPrefWidth() / 6);
-//         sin.setPrefHeight(20);
-//         sin.setOnAction((ev) -> {
-//             if (CalculateType.getCalculated()) {
-//                 Screen.getResult().setText("");
-//                 Screen.getTypeField().setText("");
-//                 CalculateType.setCalculated(Boolean.FALSE);
-//             }
-//             CalculateType.setType("Scientific");
-//             if (CalculateType.getShifMode()) {
-//                 Screen.getTypeField().appendText("sin-1(");
-//             } else {
-//                 Screen.getTypeField().appendText("sin(");
-//             }
-//         });
-//         return sin;
-//     }
-
-//     public JFXButton tan() {
-//         JFXButton tan = new JFXButton("tan");
-//         tan.setButtonType(JFXButton.ButtonType.RAISED);
-//         tan.getStyleClass().add("sciButton");
-//         tan.setTextFill(Color.WHITE);
-//         tan.setPrefWidth(row.getPrefWidth() / 6);
-//         tan.setPrefHeight(20);
-//         tan.setOnAction((ev) -> {
-//             if (CalculateType.getCalculated()) {
-//                 Screen.getResult().setText("");
-//                 Screen.getTypeField().setText("");
-//                 CalculateType.setCalculated(Boolean.FALSE);
-//             }
-//             CalculateType.setType("Scientific");
-//             if (CalculateType.getShifMode()) {
-//                 Screen.getTypeField().appendText("sin-1(");
-//             } else {
-//                 Screen.getTypeField().appendText("sin(");
-//             }
-//         });
-//         return tan;
-//     }
-
-//     public JFXButton cos() {
-//         JFXButton cos = new JFXButton("cos");
-//         cos.setButtonType(JFXButton.ButtonType.RAISED);
-//         cos.getStyleClass().add("sciButton");
-//         cos.setTextFill(Color.WHITE);
-//         cos.setPrefWidth(row.getPrefWidth() / 6);
-//         cos.setPrefHeight(20);
-//         cos.setOnAction((ev) -> {
-//             if (CalculateType.getCalculated()) {
-//                 Screen.getResult().setText("");
-//                 Screen.getTypeField().setText("");
-//                 CalculateType.setCalculated(Boolean.FALSE);
-//             }
-//             CalculateType.setType("Scientific");
-//             if (CalculateType.getShifMode()) {
-//                 Screen.getTypeField().appendText("cos-1(");
-//             } else {
-//                 Screen.getTypeField().appendText("cos(");
-//             }
-//         });
-//         return cos;
-//     }
-
+    /**
+     * Creates a generic JFXButton with the specified label and type.
+     *
+     * @param label The label/text to display on the button
+     * @param type  The type of the button (1, 2, 3, or 4)
+     * @return JFXButton with the specified label and type
+     */
       public JFXButton createJFXButton(String label, int type) {
         JFXButton button = new JFXButton(label);
         button.setButtonType(JFXButton.ButtonType.RAISED);

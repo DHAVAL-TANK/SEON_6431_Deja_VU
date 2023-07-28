@@ -12,6 +12,9 @@ import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
 
 /**
+ * The Solve class is responsible for performing mathematical calculations in the scientific calculator.
+ * It handles various mathematical operations like power, nth root, trigonometric functions, etc.
+ * 
  * @author Idris Opeyemi
  */
 public class Solve {
@@ -19,6 +22,12 @@ public class Solve {
     public Solve() {
     }
 
+    /**
+     * Solves the power operation (x^y) in a given mathematical expression.
+     * 
+     * @param calculate The mathematical expression containing the power operation
+     * @return The updated mathematical expression with the power operation solved
+     */
     public String solvePower(String calculate) {
         String[] parts = calculate.split("(?=[/×-÷+^])|(?<=[/×÷*-+^])");
         float solvedPow = (float) 0.00;
@@ -36,6 +45,13 @@ public class Solve {
         return calculate;
     }
 
+    /**
+     * Solves the nth root operation (∛) in a given mathematical expression.
+     * 
+     * @param calculate The mathematical expression containing the nth root operation
+     * @param power The power for the nth root
+     * @return The updated mathematical expression with the nth root operation solved
+     */
     public String solveNthRoot(String calculate, int power) {
         String[] parts = calculate.split("(?=[/×-÷+∛])|(?<=[/×÷*-+∛])");
         float solvedPow = (float) 0.0000;
@@ -53,6 +69,9 @@ public class Solve {
         return calculate;
     }
 
+    /**
+     * Solves the mathematical expression entered by the user.
+     */
     public void solve() {
         String calculate = Screen.getTypeField().getText();
         if (calculate.contains("^")) {
@@ -83,6 +102,10 @@ public class Solve {
         }
     }
 
+    /**
+     * Solves the scientific mathematical expression entered by the user.
+     * It handles trigonometric functions, inverse trigonometric functions, and other advanced operations.
+     */
     public void solveScientific() {
         String calculate = Screen.getTypeField().getText();
         if (calculate.contains("sin-1") || calculate.contains("cos-1") || calculate.contains("tan-1")) {
@@ -126,6 +149,11 @@ public class Solve {
         }
     }
 
+    /**
+     * Solves the inverse trigonometric functions (sin-1, cos-1, tan-1) in a given mathematical expression.
+     * 
+     * The method replaces the inverse trigonometric functions with their corresponding values in degrees.
+     */
     public void solveInverse() {
         String calculate = Screen.getTypeField().getText();
         if (calculate.contains("^")) {
@@ -163,6 +191,11 @@ public class Solve {
         }
     }
 
+    /**
+     * Solves the factorial of an integer value in a given mathematical expression.
+     * 
+     * @param value The integer value for which to compute the factorial
+     */
     public void solveFactorial() {
         int fac = Integer.parseInt(Screen.getTypeField().getText());
         fac = factorial(fac);
@@ -171,6 +204,12 @@ public class Solve {
         Screen.getResultList().add(fac + "");
     }
 
+    /**
+     * Computes the factorial of a given integer value.
+     * 
+     * @param value The integer value for which to compute the factorial
+     * @return The factorial value of the input integer
+     */
     public int factorial(int value) {
         for (int i = (value - 1); i > 0; i--) {
             value = value * i;
@@ -178,6 +217,9 @@ public class Solve {
         return value;
     }
 
+    /**
+     * Computes the combination (nCr) of two numbers.
+     */
     public void combination() {
         String val[] = Screen.getTypeField().getText().split("(?=[C])|(?<=[C])");
         int nValue = Integer.parseInt(val[0]);
@@ -192,6 +234,11 @@ public class Solve {
 
     }
 
+    /**
+     * Computes the permutation (nPr) of two numbers.
+     * 
+     * The permutation is calculated based on the formula n! / (n-r)!
+     */
     public void permutation() {
         String val[] = Screen.getTypeField().getText().split("(?=[P])|(?<=[P])");
         int nValue = Integer.parseInt(val[0]);
