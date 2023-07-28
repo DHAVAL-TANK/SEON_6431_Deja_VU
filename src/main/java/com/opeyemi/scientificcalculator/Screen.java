@@ -16,6 +16,9 @@ import javafx.scene.text.Text;
 
 /**
  *
+ * The Screen class represents the user interface screen of the scientific calculator.
+ * It includes the calculation text field, result text field, and the calculation history.
+ * 
  * @author Idris Opeyemi
  */
 public class Screen {
@@ -27,7 +30,11 @@ public class Screen {
 
     public Screen() {
     }
-
+    /**
+     * Creates and returns the user interface screen for the calculator.
+     * 
+     * @return The VBox containing the calculation screen components
+     */
     public VBox calculateScreen() {
         VBox calculate = new VBox();
         Text mode = new Text("DEG");     
@@ -64,7 +71,11 @@ public class Screen {
     public static ObservableList<String> getToCalculate() {
         return toCalculate;
     }
-
+    /**
+     * Sets the list of calculations to be performed.
+     * 
+     * @param toCalculate The list of calculations to set
+     */
     public static void setToCalculate(ObservableList<String> toCalculate) {
         Screen.toCalculate = toCalculate;
     }
@@ -73,6 +84,11 @@ public class Screen {
         return resultList;
     }
 
+    /**
+     * Sets the list of calculation results.
+     * 
+     * @param resultList The list of calculation results to set
+     */
     public static void setResultList(ObservableList<String> resultList) {
         Screen.resultList = resultList;
     }

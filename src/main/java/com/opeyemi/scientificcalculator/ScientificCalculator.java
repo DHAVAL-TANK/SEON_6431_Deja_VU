@@ -16,6 +16,9 @@ import javafx.stage.StageStyle;
 
 /**
  *
+ * The ScientificCalculator class is a JavaFX application for a scientific calculator.
+ * It launches the graphical user interface for the calculator.
+ * 
  * @author Idris Opeyemi
  */
 public class ScientificCalculator extends Application {
@@ -25,7 +28,11 @@ public class ScientificCalculator extends Application {
     public static Stage getPrimaryStage() {
         return primaryStage;
     }
-
+    /**
+     * Set the primary stage of the application.
+     * 
+     * @param primaryStage The primary stage to set
+     */
     public static void setPrimaryStage(Stage primaryStage) {
         ScientificCalculator.primaryStage = primaryStage;
     }
@@ -52,7 +59,9 @@ public class ScientificCalculator extends Application {
     }
 
     /**
-     * @param args the command line arguments
+     * The main method to launch the application.
+     * 
+     * @param args The command line arguments
      */
     public static void main(String[] args) {
         launch(args);

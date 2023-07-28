@@ -107,6 +107,13 @@ public class ScientificCalculatorController implements Initializable {
         anchorPane.getChildren().add(panelBox);
     }
 
+    /**
+     * Creates and initializes the container for the number buttons.
+     * This container (VBox) includes multiple rows of numerical buttons for
+     * various digits and arithmetic operations.
+     *
+     * @return The VBox containing the rows of number buttons.
+     */
     public VBox numberBox() {
         VBox numBox = new VBox();
         numBox.getChildren().addAll(numShiftRow1(), new NumberButtons().row1(), new NumberButtons().row2(), numShiftRow3(), new NumberButtons().row3(), numShiftRow4(), new NumberButtons().row4());
@@ -119,6 +126,13 @@ public class ScientificCalculatorController implements Initializable {
         return sciBox;
     }
 
+    /**
+     * Creates and initializes the replay controls inside a BorderPane.
+     * The replay controls consist of buttons for navigating through the history of calculations.
+     * It includes buttons for moving to the previous calculation, next calculation, and editing the current calculation.
+     *
+     * @return The BorderPane containing the replay controls.
+     */
     public BorderPane replay() {
         BorderPane replay = new BorderPane();
         replay.setPrefHeight(0);
@@ -189,6 +203,12 @@ public class ScientificCalculatorController implements Initializable {
         return replay;
     }
 
+    /**
+     * Retrieves the previous calculation result and expression from the history of calculations.
+     * If the current expression is found in the list of previous calculations,
+     * the method updates the screen to display the previous calculation result and expression.
+     * If no previous calculation is available, the screen remains unchanged.
+     */
     public void getPrev() {
         String prevToCal = Screen.getToCalculate().get(Screen.getToCalculate().size() - 1);
         String prevResult = Screen.getResultList().get(Screen.getResultList().size() - 1);
@@ -205,6 +225,11 @@ public class ScientificCalculatorController implements Initializable {
         }
     }
 
+    /**
+     * Moves the calculator panel to the next state when the user presses the UP key.
+     * This method retrieves the next calculation and result from the history and updates the display accordingly.
+     * If there is no next state available in the history, this method does nothing.
+     */
     public void getNext() {
         if (Screen.getToCalculate().contains(Screen.getTypeField().getText())) {
             int index2 = Screen.getToCalculate().indexOf(Screen.getTypeField().getText());
@@ -214,7 +239,13 @@ public class ScientificCalculatorController implements Initializable {
             Screen.getResult().setText(nextResult);
         }
     }
-
+    /**
+     * Creates and initializes the container for the top section of the calculator interface.
+     * This container (VBox) includes buttons for toggling the shift mode (Shift and Alpha),
+     * as well as other buttons related to the scientific calculator's functionalities.
+     *
+     * @return The VBox containing the buttons for the top section of the calculator interface.
+     */
     public VBox topBox() {
         VBox shiftAlpha = new VBox();
         shiftAlpha.setPrefWidth(panelBox.getPrefWidth() / 3);
@@ -250,6 +281,12 @@ public class ScientificCalculatorController implements Initializable {
         return shiftAlpha;
     }
 
+    /**
+     * Creates and initializes the top box for the shift and alpha buttons.
+     * This box contains labels for the "Shift" and "Alpha" modes, indicating the current mode.
+     *
+     * @return The VBox containing the shift and alpha mode buttons and labels.
+     */
     public VBox ShiftTopBox() {
         VBox row3 = new VBox();
         row3.setPadding(Insets.EMPTY);
@@ -266,7 +303,14 @@ public class ScientificCalculatorController implements Initializable {
         return row3;
     }
 
-    public VBox rightTopBox() {
+    /**
+     * Creates and initializes the container for the top-right section of the calculator interface.
+     * This container (VBox) includes buttons for toggling the second half of the shift mode (Mode and On),
+     * as well as other buttons related to the scientific calculator's functionalities.
+     *
+     * @return The VBox containing the buttons for the top-right section of the calculator interface.
+     */
+        public VBox rightTopBox() {
         VBox modeOn = new VBox();
         modeOn.setPrefWidth(panelBox.getPrefWidth() / 3);
         modeOn.setAlignment(Pos.TOP_RIGHT);
@@ -290,6 +334,14 @@ public class ScientificCalculatorController implements Initializable {
         return modeOn;
     }
 
+    /**
+     * Creates and initializes the container for the second half of the shift mode buttons,
+     * which are located in the top-right corner of the calculator interface.
+     * This container (VBox) includes buttons for toggling the shift mode (on and off).
+     * The shift mode enables additional functionalities for the scientific calculator.
+     *
+     * @return The VBox containing the buttons for the second half of the shift mode.
+     */
     public VBox ShiftRightTopBox() {
         VBox row3 = new VBox();
         row3.setPrefWidth(panelBox.getPrefWidth() / 3);
@@ -306,7 +358,13 @@ public class ScientificCalculatorController implements Initializable {
         return row3;
     }
 
-    public HBox shiftHalfSciRow1() {
+    /**
+     * Creates and initializes the first row of the shift mode buttons (half-row) in the scientific mode.
+     * This row contains buttons for factorial (x!), permutation (nPr), and other mathematical operations.
+     *
+     * @return The HBox containing the first row of shift mode buttons in the scientific mode.
+     */
+        public HBox shiftHalfSciRow1() {
         HBox row3 = new HBox();
         row3.setPrefWidth(panelBox.getPrefWidth() / 3);
         Label factorial = new Label("x!");
@@ -320,6 +378,13 @@ public class ScientificCalculatorController implements Initializable {
         return row3;
     }
 
+    /**
+     * Creates and initializes the first row of the second half of the scientific shift mode buttons.
+     * This row contains buttons for mathematical operations related to cube root (∛) and other
+     * additional operations available in the second half of the scientific shift mode.
+     *
+     * @return The HBox containing the first row of the second half of scientific shift mode buttons.
+     */
     public HBox shiftHalf2SciRow1() {
         HBox row3 = new HBox();
         row3.setPrefWidth(panelBox.getPrefWidth() / 3);
@@ -335,6 +400,13 @@ public class ScientificCalculatorController implements Initializable {
         return row3;
     }
 
+    /**
+     * Creates and initializes the second row of the scientific shift mode buttons.
+     * This row contains buttons for mathematical operations related to exponents and roots,
+     * which are available in the scientific shift mode.
+     *
+     * @return The HBox containing the second row of scientific shift mode buttons.
+     */
     public HBox sciShiftRow2() {
         HBox row1 = new HBox();
         row1.setPrefWidth(panelBox.getPrefWidth());
@@ -358,6 +430,13 @@ public class ScientificCalculatorController implements Initializable {
         return row1;
     }
 
+    /**
+     * Creates and initializes the third row of the scientific shift mode buttons.
+     * This row contains buttons for mathematical operations related to trigonometric functions
+     * and the alpha characters (A-F) available in the scientific shift mode.
+     *
+     * @return The HBox containing the third row of scientific shift mode buttons.
+     */
     public HBox sciShiftRow3() {
         HBox row1 = new HBox();
         row1.setPrefWidth(panelBox.getPrefWidth());
@@ -401,6 +480,14 @@ public class ScientificCalculatorController implements Initializable {
         return row1;
     }
 
+    /**
+     * Creates and initializes the fourth row of the scientific shift mode buttons.
+     * This row contains buttons for various mathematical operations and functions
+     * related to storing values in memory (STO) and using memory values (A-F) available
+     * in the scientific shift mode.
+     *
+     * @return The HBox containing the fourth row of the scientific shift mode buttons.
+     */
     public HBox sciShiftRow4() {
         HBox row1 = new HBox();
         row1.setPrefWidth(panelBox.getPrefWidth());
@@ -428,6 +515,13 @@ public class ScientificCalculatorController implements Initializable {
         return row1;
     }
 
+    /**
+     * Creates and initializes the first row of the number shift mode buttons.
+     * This row contains buttons for various numerical operations and modes available
+     * in the number shift mode. The buttons include "INS" (Insert) and "OFF" (Power Off).
+     *
+     * @return The HBox containing the first row of number shift mode buttons.
+    */
     public HBox numShiftRow1() {
         HBox row1 = new HBox();
         row1.setPrefWidth(panelBox.getPrefWidth());
@@ -445,6 +539,13 @@ public class ScientificCalculatorController implements Initializable {
         return row1;
     }
 
+    /**
+     * Creates and initializes the third row of the number shift mode buttons.
+     * This row contains buttons for various numerical operations related to statistical calculations,
+     * including the "S-SUM" (Summation) and "S-VAR" (Variance) buttons.
+     *
+     * @return The HBox containing the third row of number shift mode buttons.
+     */
     public HBox numShiftRow3() {
         HBox row3 = new HBox();
         row3.setPrefWidth(panelBox.getPrefWidth());
@@ -459,6 +560,13 @@ public class ScientificCalculatorController implements Initializable {
         return row3;
     }
 
+    /**
+     * Creates and initializes the fourth row of the number shift mode buttons.
+     * This row contains buttons for various numerical operations and constants available
+     * in the number shift mode. The buttons include Rnd, Ran#, π (pi), DRG, and %.
+     *
+     * @return The HBox containing the fourth row of number shift mode buttons.
+     */
     public HBox numShiftRow4() {
         HBox row3 = new HBox();
         row3.setPrefWidth(panelBox.getPrefWidth());
