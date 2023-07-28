@@ -79,7 +79,7 @@ public class Solve {
             Screen.getResultList().add("SYNTAX ERROR");
             Screen.getResult().setText("SYNTAX ERROR");
             CalculateType.setCalculated(Boolean.TRUE);
-            e.printStackTrace();
+           // e.printStackTrace();
         }
     }
 
@@ -122,7 +122,7 @@ public class Solve {
             Screen.getResultList().add("SYNTAX ERROR");
             Screen.getResult().setText("SYNTAX ERROR");
             CalculateType.setCalculated(Boolean.TRUE);
-            e.printStackTrace();
+           // e.printStackTrace();
         }
     }
 
@@ -159,7 +159,7 @@ public class Solve {
             Screen.getResultList().add("SYNTAX ERROR");
             Screen.getResult().setText("SYNTAX ERROR");
             CalculateType.setCalculated(Boolean.TRUE);
-            e.printStackTrace();
+           // e.printStackTrace();
         }
     }
 
