@@ -120,7 +120,14 @@ public class ScientificCalculatorController implements Initializable {
         return numBox;
     }
 
-    public VBox sciBox() {
+    /**
+     * Creates and initializes the container for the scientific mode buttons.
+     * This container (VBox) includes buttons for various scientific operations and functions,
+     * which are available when the calculator is in the scientific mode (Shift mode is on).
+     *
+     * @return The VBox containing the buttons for the scientific mode.
+     */
+     public VBox sciBox() {
         VBox sciBox = new VBox();
         sciBox.getChildren().addAll(sciShiftRow2(), new ScientificButtons().row2(), sciShiftRow3(), new ScientificButtons().row3(), sciShiftRow4(), new ScientificButtons().row4());
         return sciBox;
