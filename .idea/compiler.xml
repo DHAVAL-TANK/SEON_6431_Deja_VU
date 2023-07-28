@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="ScientificCalculator" />
+        <module name="SEON_6431_Deja_VU" />
       </profile>
     </annotationProcessing>
   </component>
