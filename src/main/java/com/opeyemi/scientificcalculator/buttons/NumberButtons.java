@@ -50,7 +50,7 @@ public class NumberButtons {
         HBox row4 = new HBox(10);
         row4.setPrefWidth(350);;
         row4.setPadding(new Insets(0, 5, 5, 5));
-        row4.getChildren().addAll(zero(), point(), exp(), ans(), equals());
+        row4.getChildren().addAll(zero(), point(), createJFXNumButton("exp",2), createJFXNumButton("Ans",2), equals());
         return row4;
     }
 
@@ -58,7 +58,7 @@ public class NumberButtons {
         HBox row3 = new HBox(10);
         row3.setPrefWidth(350);;
         row3.setPadding(new Insets(0, 5, 5, 5));
-        row3.getChildren().addAll(one(), two(), three(), plus(), minus());
+        row3.getChildren().addAll( createJFXNumButton("1",1),  createJFXNumButton("2",1), createJFXNumButton("3",1),  createJFXNumButton("+",1), createJFXNumButton("-",1));
         return row3;
     }
 
@@ -66,7 +66,7 @@ public class NumberButtons {
         HBox row2 = new HBox(10);
         row2.setPrefWidth(350);;
         row2.setPadding(new Insets(10, 5, 5, 5));
-        row2.getChildren().addAll(four(), five(), six(), multiply(), divide());
+        row2.getChildren().addAll( createJFXNumButton("4",1),  createJFXNumButton("5",1),  createJFXNumButton("6",1), createJFXNumButton("×",1), createJFXNumButton("÷",1));
         return row2;
     }
 
@@ -74,315 +74,341 @@ public class NumberButtons {
         HBox row1 = new HBox(10);
         row1.setPrefWidth(350);;
         row1.setPadding(new Insets(0, 5, 10, 5));
-        row1.getChildren().addAll(seven(), eight(), nine(), del(), ac());
+        row1.getChildren().addAll(createJFXNumButton("7",1), createJFXNumButton("8",1), createJFXNumButton("9",1), del(), ac());
         return row1;
     }
 
-    public JFXButton zero() {
-        JFXButton zero = new JFXButton("0");
-        zero.setButtonType(JFXButton.ButtonType.RAISED);
-        zero.getStyleClass().add("numButton");
-        zero.setTextFill(Color.WHITE);
-        zero.setPrefWidth(row1.getPrefWidth() / 5);
-        zero.setPrefHeight(25);
-        zero.setOnAction((ev) -> {
+   
+       public JFXButton createJFXNumButton(String label, int type) {
+        JFXButton button = new JFXButton(label);
+        button.setButtonType(JFXButton.ButtonType.RAISED);
+        button.getStyleClass().add("numButton");
+        button.setTextFill(Color.WHITE);
+        button.setPrefWidth(row1.getPrefWidth() / 5);
+        button.setPrefHeight(25);
+       
+          button.setOnAction((ev) -> {
             if (CalculateType.getCalculated()) {
                 Screen.getResult().setText("");
                 Screen.getTypeField().setText("");
                 CalculateType.setCalculated(Boolean.FALSE);
             }
-            Screen.getTypeField().appendText("0");
-        });
-        return zero;
-    }
+            if( type == 1 )
+          { Screen.getTypeField().appendText(label);}
+          else {
 
-    public JFXButton one() {
-        JFXButton one = new JFXButton("1");
-        one.setButtonType(JFXButton.ButtonType.RAISED);
-        one.getStyleClass().add("numButton");
-        one.setTextFill(Color.WHITE);
-        one.setPrefWidth(row1.getPrefWidth() / 5);
-        one.setPrefHeight(25);
-        one.setOnAction((ev) -> {
-            if (CalculateType.getCalculated()) {
-                Screen.getResult().setText("");
-                Screen.getTypeField().setText("");
-                CalculateType.setCalculated(Boolean.FALSE);
-            }
-            Screen.getTypeField().appendText("1");
-        });
-        return one;
+          }
+           });
+        return button;
     }
+// //type1 createJFXNumButton("1",1)
+//  public JFXButton zero() {
+//         JFXButton zero = new JFXButton("0");
+//         zero.setButtonType(JFXButton.ButtonType.RAISED);
+//         zero.getStyleClass().add("numButton");
+//         zero.setTextFill(Color.WHITE);
+//         zero.setPrefWidth(row1.getPrefWidth() / 5);
+//         zero.setPrefHeight(25);
+//         zero.setOnAction((ev) -> {
+//             if (CalculateType.getCalculated()) {
+//                 Screen.getResult().setText("");
+//                 Screen.getTypeField().setText("");
+//                 CalculateType.setCalculated(Boolean.FALSE);
+//             }
+//             Screen.getTypeField().appendText("0");
+//         });
+//         return zero;
+//     }
 
-    public JFXButton two() {
-        JFXButton two = new JFXButton("2");
-        two.setButtonType(JFXButton.ButtonType.RAISED);
-        two.getStyleClass().add("numButton");
-        two.setTextFill(Color.WHITE);
-        two.setPrefWidth(row1.getPrefWidth() / 5);
-        two.setPrefHeight(25);
-        two.setOnAction((ev) -> {
-            if (CalculateType.getCalculated()) {
-                Screen.getResult().setText("");
-                Screen.getTypeField().setText("");
-                CalculateType.setCalculated(Boolean.FALSE);
-            }
-            Screen.getTypeField().appendText("2");
-        });
-        return two;
-    }
+//     public JFXButton one() {
+//         JFXButton one = new JFXButton("1");
+//         one.setButtonType(JFXButton.ButtonType.RAISED);
+//         one.getStyleClass().add("numButton");
+//         one.setTextFill(Color.WHITE);
+//         one.setPrefWidth(row1.getPrefWidth() / 5);
+//         one.setPrefHeight(25);
+//         one.setOnAction((ev) -> {
+//             if (CalculateType.getCalculated()) {
+//                 Screen.getResult().setText("");
+//                 Screen.getTypeField().setText("");
+//                 CalculateType.setCalculated(Boolean.FALSE);
+//             }
+//             Screen.getTypeField().appendText("1");
+//         });
+//         return one;
+//     }
 
-    public JFXButton three() {
-        JFXButton three = new JFXButton("3");
-        three.setButtonType(JFXButton.ButtonType.RAISED);
-        three.getStyleClass().add("numButton");
-        three.setTextFill(Color.WHITE);
-        three.setPrefWidth(row1.getPrefWidth() / 5);
-        three.setPrefHeight(25);
-        three.setOnAction((ev) -> {
-            if (CalculateType.getCalculated()) {
-                Screen.getResult().setText("");
-                Screen.getTypeField().setText("");
-                CalculateType.setCalculated(Boolean.FALSE);
-            }
-            Screen.getTypeField().appendText("3");
-        });
-        return three;
-    }
+//     public JFXButton two() {
+//         JFXButton two = new JFXButton("2");
+//         two.setButtonType(JFXButton.ButtonType.RAISED);
+//         two.getStyleClass().add("numButton");
+//         two.setTextFill(Color.WHITE);
+//         two.setPrefWidth(row1.getPrefWidth() / 5);
+//         two.setPrefHeight(25);
+//         two.setOnAction((ev) -> {
+//             if (CalculateType.getCalculated()) {
+//                 Screen.getResult().setText("");
+//                 Screen.getTypeField().setText("");
+//                 CalculateType.setCalculated(Boolean.FALSE);
+//             }
+//             Screen.getTypeField().appendText("2");
+//         });
+//         return two;
+//     }
 
-    public JFXButton four() {
-        JFXButton four = new JFXButton("4");
-        four.setButtonType(JFXButton.ButtonType.RAISED);
-        four.getStyleClass().add("numButton");
-        four.setTextFill(Color.WHITE);
-        four.setPrefWidth(row1.getPrefWidth() / 5);
-        four.setPrefHeight(25);
-        four.setOnAction((ev) -> {
-            if (CalculateType.getCalculated()) {
-                Screen.getResult().setText("");
-                Screen.getTypeField().setText("");
-                CalculateType.setCalculated(Boolean.FALSE);
-            }
-            Screen.getTypeField().appendText("4");
-        });
-        return four;
-    }
+//     public JFXButton three() {
+//         JFXButton three = new JFXButton("3");
+//         three.setButtonType(JFXButton.ButtonType.RAISED);
+//         three.getStyleClass().add("numButton");
+//         three.setTextFill(Color.WHITE);
+//         three.setPrefWidth(row1.getPrefWidth() / 5);
+//         three.setPrefHeight(25);
+//         three.setOnAction((ev) -> {
+//             if (CalculateType.getCalculated()) {
+//                 Screen.getResult().setText("");
+//                 Screen.getTypeField().setText("");
+//                 CalculateType.setCalculated(Boolean.FALSE);
+//             }
+//             Screen.getTypeField().appendText("3");
+//         });
+//         return three;
+//     }
 
-    public JFXButton five() {
-        JFXButton five = new JFXButton("5");
-        five.setButtonType(JFXButton.ButtonType.RAISED);
-        five.getStyleClass().add("numButton");
-        five.setTextFill(Color.WHITE);
-        five.setPrefWidth(row1.getPrefWidth() / 5);
-        five.setPrefHeight(25);
-        five.setOnAction((ev) -> {
-            if (CalculateType.getCalculated()) {
-                Screen.getResult().setText("");
-                Screen.getTypeField().setText("");
-                CalculateType.setCalculated(Boolean.FALSE);
-            }
-            Screen.getTypeField().appendText("5");
-        });
-        return five;
-    }
+//     public JFXButton four() {
+//         JFXButton four = new JFXButton("4");
+//         four.setButtonType(JFXButton.ButtonType.RAISED);
+//         four.getStyleClass().add("numButton");
+//         four.setTextFill(Color.WHITE);
+//         four.setPrefWidth(row1.getPrefWidth() / 5);
+//         four.setPrefHeight(25);
+//         four.setOnAction((ev) -> {
+//             if (CalculateType.getCalculated()) {
+//                 Screen.getResult().setText("");
+//                 Screen.getTypeField().setText("");
+//                 CalculateType.setCalculated(Boolean.FALSE);
+//             }
+//             Screen.getTypeField().appendText("4");
+//         });
+//         return four;
+//     }
 
-    public JFXButton six() {
-        JFXButton six = new JFXButton("6");
-        six.setButtonType(JFXButton.ButtonType.RAISED);
-        six.getStyleClass().add("numButton");
-        six.setTextFill(Color.WHITE);
-        six.setPrefWidth(row1.getPrefWidth() / 5);
-        six.setPrefHeight(25);
-        six.setOnAction((ev) -> {
-            if (CalculateType.getCalculated()) {
-                Screen.getResult().setText("");
-                Screen.getTypeField().setText("");
-                CalculateType.setCalculated(Boolean.FALSE);
-            }
-            Screen.getTypeField().appendText("6");
-        });
-        return six;
-    }
+//     public JFXButton five() {
+//         JFXButton five = new JFXButton("5");
+//         five.setButtonType(JFXButton.ButtonType.RAISED);
+//         five.getStyleClass().add("numButton");
+//         five.setTextFill(Color.WHITE);
+//         five.setPrefWidth(row1.getPrefWidth() / 5);
+//         five.setPrefHeight(25);
+//         five.setOnAction((ev) -> {
+//             if (CalculateType.getCalculated()) {
+//                 Screen.getResult().setText("");
+//                 Screen.getTypeField().setText("");
+//                 CalculateType.setCalculated(Boolean.FALSE);
+//             }
+//             Screen.getTypeField().appendText("5");
+//         });
+//         return five;
+//     }
 
-    public JFXButton seven() {
-        JFXButton seven = new JFXButton("7");
-        seven.setButtonType(JFXButton.ButtonType.RAISED);
-        seven.getStyleClass().add("numButton");
-        seven.setTextFill(Color.WHITE);
-        seven.setPrefWidth(row1.getPrefWidth() / 5);
-        seven.setPrefHeight(25);
-        seven.setOnAction((ev) -> {
-            if (CalculateType.getCalculated()) {
-                Screen.getResult().setText("");
-                Screen.getTypeField().setText("");
-                CalculateType.setCalculated(Boolean.FALSE);
-            }
-            Screen.getTypeField().appendText("7");
-        });
-        return seven;
-    }
+//     public JFXButton six() {
+//         JFXButton six = new JFXButton("6");
+//         six.setButtonType(JFXButton.ButtonType.RAISED);
+//         six.getStyleClass().add("numButton");
+//         six.setTextFill(Color.WHITE);
+//         six.setPrefWidth(row1.getPrefWidth() / 5);
+//         six.setPrefHeight(25);
+//         six.setOnAction((ev) -> {
+//             if (CalculateType.getCalculated()) {
+//                 Screen.getResult().setText("");
+//                 Screen.getTypeField().setText("");
+//                 CalculateType.setCalculated(Boolean.FALSE);
+//             }
+//             Screen.getTypeField().appendText("6");
+//         });
+//         return six;
+//     }
 
-    public JFXButton eight() {
-        JFXButton eight = new JFXButton("8");
-        eight.setButtonType(JFXButton.ButtonType.RAISED);
-        eight.getStyleClass().add("numButton");
-        eight.setTextFill(Color.WHITE);
-        eight.setPrefWidth(row1.getPrefWidth() / 5);
-        eight.setPrefHeight(25);
-        eight.setOnAction((ev) -> {
-            if (CalculateType.getCalculated()) {
-                Screen.getResult().setText("");
-                Screen.getTypeField().setText("");
-                CalculateType.setCalculated(Boolean.FALSE);
-            }
-            Screen.getTypeField().appendText("8");
-        });
-        return eight;
-    }
+//     public JFXButton seven() {
+//         JFXButton seven = new JFXButton("7");
+//         seven.setButtonType(JFXButton.ButtonType.RAISED);
+//         seven.getStyleClass().add("numButton");
+//         seven.setTextFill(Color.WHITE);
+//         seven.setPrefWidth(row1.getPrefWidth() / 5);
+//         seven.setPrefHeight(25);
+//         seven.setOnAction((ev) -> {
+//             if (CalculateType.getCalculated()) {
+//                 Screen.getResult().setText("");
+//                 Screen.getTypeField().setText("");
+//                 CalculateType.setCalculated(Boolean.FALSE);
+//             }
+//             Screen.getTypeField().appendText("7");
+//         });
+//         return seven;
+//     }
 
-    public JFXButton nine() {
-        JFXButton nine = new JFXButton("9");
-        nine.setButtonType(JFXButton.ButtonType.RAISED);
-        nine.getStyleClass().add("numButton");
-        nine.setTextFill(Color.WHITE);
-        nine.setPrefWidth(row1.getPrefWidth() / 5);
-        nine.setPrefHeight(25);
-        nine.setOnAction((ev) -> {
-            if (CalculateType.getCalculated()) {
-                Screen.getResult().setText("");
-                Screen.getTypeField().setText("");
-                CalculateType.setCalculated(Boolean.FALSE);
-            }
-            Screen.getTypeField().appendText("9");
-        });
-        return nine;
-    }
+//     public JFXButton eight() {
+//         JFXButton eight = new JFXButton("8");
+//         eight.setButtonType(JFXButton.ButtonType.RAISED);
+//         eight.getStyleClass().add("numButton");
+//         eight.setTextFill(Color.WHITE);
+//         eight.setPrefWidth(row1.getPrefWidth() / 5);
+//         eight.setPrefHeight(25);
+//         eight.setOnAction((ev) -> {
+//             if (CalculateType.getCalculated()) {
+//                 Screen.getResult().setText("");
+//                 Screen.getTypeField().setText("");
+//                 CalculateType.setCalculated(Boolean.FALSE);
+//             }
+//             Screen.getTypeField().appendText("8");
+//         });
+//         return eight;
+//     }
 
-    public JFXButton point() {
-        JFXButton point = new JFXButton(".");
-        point.setButtonType(JFXButton.ButtonType.RAISED);
-        point.getStyleClass().add("numButton");
-        point.setTextFill(Color.WHITE);
-        point.setPrefWidth(row1.getPrefWidth() / 5);
-        point.setPrefHeight(25);
-        point.setOnAction((ev) -> {
-            if (CalculateType.getCalculated()) {
-                Screen.getResult().setText("");
-                Screen.getTypeField().setText("");
-                CalculateType.setCalculated(Boolean.FALSE);
-            }
-            Screen.getTypeField().appendText(".");
-        });
-        return point;
-    }
+//     public JFXButton nine() {
+//         JFXButton nine = new JFXButton("9");
+//         nine.setButtonType(JFXButton.ButtonType.RAISED);
+//         nine.getStyleClass().add("numButton");
+//         nine.setTextFill(Color.WHITE);
+//         nine.setPrefWidth(row1.getPrefWidth() / 5);
+//         nine.setPrefHeight(25);
+//         nine.setOnAction((ev) -> {
+//             if (CalculateType.getCalculated()) {
+//                 Screen.getResult().setText("");
+//                 Screen.getTypeField().setText("");
+//                 CalculateType.setCalculated(Boolean.FALSE);
+//             }
+//             Screen.getTypeField().appendText("9");
+//         });
+//         return nine;
+//     }
 
-    public JFXButton plus() {
-        JFXButton plus = new JFXButton("+");
-        plus.setButtonType(JFXButton.ButtonType.RAISED);
-        plus.getStyleClass().add("numButton");
-        plus.setTextFill(Color.WHITE);
-        plus.setPrefWidth(row1.getPrefWidth() / 5);
-        plus.setPrefHeight(25);
-        plus.setOnAction((ev) -> {
-            if (CalculateType.getCalculated()) {
-                Screen.getTypeField().setText(Screen.getResult().getText());
-                Screen.getResult().setText("");
-                CalculateType.setCalculated(Boolean.FALSE);
-            }
-            Screen.getTypeField().appendText("+");
-        });
-        return plus;
-    }
+//     public JFXButton point() {
+//         JFXButton point = new JFXButton(".");
+//         point.setButtonType(JFXButton.ButtonType.RAISED);
+//         point.getStyleClass().add("numButton");
+//         point.setTextFill(Color.WHITE);
+//         point.setPrefWidth(row1.getPrefWidth() / 5);
+//         point.setPrefHeight(25);
+//         point.setOnAction((ev) -> {
+//             if (CalculateType.getCalculated()) {
+//                 Screen.getResult().setText("");
+//                 Screen.getTypeField().setText("");
+//                 CalculateType.setCalculated(Boolean.FALSE);
+//             }
+//             Screen.getTypeField().appendText(".");
+//         });
+//         return point;
+//     }
 
-    public JFXButton minus() {
-        JFXButton minus = new JFXButton("-");
-        minus.setButtonType(JFXButton.ButtonType.RAISED);
-        minus.getStyleClass().add("numButton");
-        minus.setTextFill(Color.WHITE);
-        minus.setPrefWidth(row1.getPrefWidth() / 5);
-        minus.setPrefHeight(25);
-        minus.setOnAction((ev) -> {
-            if (CalculateType.getCalculated()) {
-                Screen.getTypeField().setText(Screen.getResult().getText());
-                Screen.getResult().setText("");
-                CalculateType.setCalculated(Boolean.FALSE);
-            }
-            Screen.getTypeField().appendText("-");
-        });
-        return minus;
-    }
+//     public JFXButton plus() {
+//         JFXButton plus = new JFXButton("+");
+//         plus.setButtonType(JFXButton.ButtonType.RAISED);
+//         plus.getStyleClass().add("numButton");
+//         plus.setTextFill(Color.WHITE);
+//         plus.setPrefWidth(row1.getPrefWidth() / 5);
+//         plus.setPrefHeight(25);
+//         plus.setOnAction((ev) -> {
+//             if (CalculateType.getCalculated()) {
+//                 Screen.getTypeField().setText(Screen.getResult().getText());
+//                 Screen.getResult().setText("");
+//                 CalculateType.setCalculated(Boolean.FALSE);
+//             }
+//             Screen.getTypeField().appendText("+");
+//         });
+//         return plus;
+//     }
 
-    public JFXButton multiply() {
-        JFXButton multiply = new JFXButton("×");
-        multiply.setButtonType(JFXButton.ButtonType.RAISED);
-        multiply.getStyleClass().add("numButton");
-        multiply.setTextFill(Color.WHITE);
-        multiply.setPrefWidth(row1.getPrefWidth() / 5);
-        multiply.setPrefHeight(25);
-        multiply.setOnAction((ev) -> {
-            if (CalculateType.getCalculated()) {
-                Screen.getTypeField().setText(Screen.getResult().getText());
-                Screen.getResult().setText("");
-                CalculateType.setCalculated(Boolean.FALSE);
-            }
-            Screen.getTypeField().appendText("×");
-        });
-        return multiply;
-    }
+//     public JFXButton minus() {
+//         JFXButton minus = new JFXButton("-");
+//         minus.setButtonType(JFXButton.ButtonType.RAISED);
+//         minus.getStyleClass().add("numButton");
+//         minus.setTextFill(Color.WHITE);
+//         minus.setPrefWidth(row1.getPrefWidth() / 5);
+//         minus.setPrefHeight(25);
+//         minus.setOnAction((ev) -> {
+//             if (CalculateType.getCalculated()) {
+//                 Screen.getTypeField().setText(Screen.getResult().getText());
+//                 Screen.getResult().setText("");
+//                 CalculateType.setCalculated(Boolean.FALSE);
+//             }
+//             Screen.getTypeField().appendText("-");
+//         });
+//         return minus;
+//     }
 
-    public JFXButton divide() {
-        JFXButton divide = new JFXButton("÷");
-        divide.setButtonType(JFXButton.ButtonType.RAISED);
-        divide.getStyleClass().add("numButton");
-        divide.setTextFill(Color.WHITE);
-        divide.setPrefWidth(row1.getPrefWidth() / 5);
-        divide.setPrefHeight(25);
-        divide.setOnAction((ev) -> {
-            if (CalculateType.getCalculated()) {
-                Screen.getTypeField().setText(Screen.getResult().getText());
-                Screen.getResult().setText("");
-                CalculateType.setCalculated(Boolean.FALSE);
-            }
-            Screen.getTypeField().appendText("÷");
-        });
-        return divide;
-    }
+//     public JFXButton multiply() {
+//         JFXButton multiply = new JFXButton("×");
+//         multiply.setButtonType(JFXButton.ButtonType.RAISED);
+//         multiply.getStyleClass().add("numButton");
+//         multiply.setTextFill(Color.WHITE);
+//         multiply.setPrefWidth(row1.getPrefWidth() / 5);
+//         multiply.setPrefHeight(25);
+//         multiply.setOnAction((ev) -> {
+//             if (CalculateType.getCalculated()) {
+//                 Screen.getTypeField().setText(Screen.getResult().getText());
+//                 Screen.getResult().setText("");
+//                 CalculateType.setCalculated(Boolean.FALSE);
+//             }
+//             Screen.getTypeField().appendText("×");
+//         });
+//         return multiply;
+//     }
 
-    public JFXButton exp() {
-        JFXButton exp = new JFXButton("exp");
-        exp.setButtonType(JFXButton.ButtonType.RAISED);
-        exp.getStyleClass().add("numButton");
-        exp.setTextFill(Color.WHITE);
-        exp.setPrefWidth(row1.getPrefWidth() / 5);
-        exp.setPrefHeight(25);
-        exp.setOnAction((ev) -> {
-            if (CalculateType.getCalculated()) {
-                Screen.getResult().setText("");
-                Screen.getTypeField().setText("");
-                CalculateType.setCalculated(Boolean.FALSE);
-            }
-//            Screen.getTypeField().appendText("exp");
-        });
-        return exp;
-    }
+//     public JFXButton divide() {
+//         JFXButton divide = new JFXButton("÷");
+//         divide.setButtonType(JFXButton.ButtonType.RAISED);
+//         divide.getStyleClass().add("numButton");
+//         divide.setTextFill(Color.WHITE);
+//         divide.setPrefWidth(row1.getPrefWidth() / 5);
+//         divide.setPrefHeight(25);
+//         divide.setOnAction((ev) -> {
+//             if (CalculateType.getCalculated()) {
+//                 Screen.getTypeField().setText(Screen.getResult().getText());
+//                 Screen.getResult().setText("");
+//                 CalculateType.setCalculated(Boolean.FALSE);
+//             }
+//             Screen.getTypeField().appendText("÷");
+//         });
+//         return divide;
+//     }
 
-    public JFXButton ans() {
-        JFXButton ans = new JFXButton("Ans");
-        ans.setButtonType(JFXButton.ButtonType.RAISED);
-        ans.getStyleClass().add("numButton");
-        ans.setTextFill(Color.WHITE);
-        ans.setPrefWidth(row1.getPrefWidth() / 5);
-        ans.setPrefHeight(25);
-        ans.setOnAction((ev) -> {
-            if (CalculateType.getCalculated()) {
-                Screen.getResult().setText("");
-                Screen.getTypeField().setText("");
-                CalculateType.setCalculated(Boolean.FALSE);
-            }
-//            Screen.getTypeField().appendText("Ans");
-        });
-        return ans;
-    }
+//  //type2
+
+//     public JFXButton exp() {
+//         JFXButton exp = new JFXButton("exp");
+//         exp.setButtonType(JFXButton.ButtonType.RAISED);
+//         exp.getStyleClass().add("numButton");
+//         exp.setTextFill(Color.WHITE);
+//         exp.setPrefWidth(row1.getPrefWidth() / 5);
+//         exp.setPrefHeight(25);
+//         exp.setOnAction((ev) -> {
+//             if (CalculateType.getCalculated()) {
+//                 Screen.getResult().setText("");
+//                 Screen.getTypeField().setText("");
+//                 CalculateType.setCalculated(Boolean.FALSE);
+//             }
+// //            Screen.getTypeField().appendText("exp");
+//         });
+//         return exp;
+//     }
+
+//     public JFXButton ans() {
+//         JFXButton ans = new JFXButton("Ans");
+//         ans.setButtonType(JFXButton.ButtonType.RAISED);
+//         ans.getStyleClass().add("numButton");
+//         ans.setTextFill(Color.WHITE);
+//         ans.setPrefWidth(row1.getPrefWidth() / 5);
+//         ans.setPrefHeight(25);
+//         ans.setOnAction((ev) -> {
+//             if (CalculateType.getCalculated()) {
+//                 Screen.getResult().setText("");
+//                 Screen.getTypeField().setText("");
+//                 CalculateType.setCalculated(Boolean.FALSE);
+//             }
+// //            Screen.getTypeField().appendText("Ans");
+//         });
+//         return ans;
+//     }
 
     public JFXButton del() {
         JFXButton del = new JFXButton();
