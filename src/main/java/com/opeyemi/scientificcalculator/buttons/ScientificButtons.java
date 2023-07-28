@@ -177,8 +177,6 @@ public class ScientificButtons {
                 Screen.getTypeField().appendText("∛");
                 CalculateType.setType("Normal");
             } else {
-//                Screen.getTypeField().appendText("C");
-//                CalculateType.setType("Combination");
             }
         });
         return pol;

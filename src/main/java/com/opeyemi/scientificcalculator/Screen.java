@@ -43,7 +43,6 @@ public class Screen {
         typeField.getStyleClass().add("typefont");
         typeField.setFocusColor(Color.WHITE);
         typeField.setUnFocusColor(Color.WHITE);
-//        typeField.setFocusTraversable(false);
         typeField.setEditable(false);
 
         result = new JFXTextField();

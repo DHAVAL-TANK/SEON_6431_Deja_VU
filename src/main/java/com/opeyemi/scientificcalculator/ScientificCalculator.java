@@ -14,6 +14,8 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+import java.util.Objects;
+
 /**
  *
  * The ScientificCalculator class is a JavaFX application for a scientific calculator.
@@ -39,9 +41,9 @@ public class ScientificCalculator extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Font.loadFont(getClass().getResource("/font/digital-7.ttf").toExternalForm(), 10);
+        Font.loadFont(Objects.requireNonNull(getClass().getResource("/font/digital-7.ttf")).toExternalForm(), 10);
 
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/ScientificCalculator.fxml"));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/ScientificCalculator.fxml")));
         System.out.println(root.toString());
         root.getStyleClass().add("anchorPane");
         Scene scene = new Scene(root);
@@ -55,7 +57,6 @@ public class ScientificCalculator extends Application {
         primaryStage.setResizable(false);
         primaryStage.initStyle(StageStyle.TRANSPARENT);
         primaryStage.show();
-//        primaryStage.styl
     }
 
     /**

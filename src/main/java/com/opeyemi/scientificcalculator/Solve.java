@@ -11,6 +11,9 @@ import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
 
+import static java.lang.Integer.parseInt;
+import static java.lang.System.*;
+
 /**
  * The Solve class is responsible for performing mathematical calculations in the scientific calculator.
  * It handles various mathematical operations like power, nth root, trigonometric functions, etc.
@@ -30,15 +33,14 @@ public class Solve {
      */
     public String solvePower(String calculate) {
         String[] parts = calculate.split("(?=[/×-÷+^])|(?<=[/×÷*-+^])");
-        float solvedPow = (float) 0.00;
+        float solvedPow;
         for (int i = 0; i < parts.length; i++) {
             if (parts[i].equals("^")) {
-                int left = Integer.parseInt(parts[i - 1]);
-                int right = Integer.parseInt(parts[i + 1]);
+                int left = parseInt(parts[i - 1]);
+                int right = parseInt(parts[i + 1]);
                 solvedPow = (float) (Math.pow(left, right));
                 int round = Math.round(solvedPow);
                 calculate = calculate.replace("" + parts[i - 1] + parts[i] + parts[i + 1], "" + round);
-//                System.out.println(calculate);
                 break;
             }
         }
@@ -54,15 +56,15 @@ public class Solve {
      */
     public String solveNthRoot(String calculate, int power) {
         String[] parts = calculate.split("(?=[/×-÷+∛])|(?<=[/×÷*-+∛])");
-        float solvedPow = (float) 0.0000;
+        float solvedPow;
         for (int i = 0; i < parts.length; i++) {
             if (parts[i].equals("∛")) {
-                int right = Integer.parseInt(parts[i + 1]);
+                int right = parseInt(parts[i + 1]);
                 solvedPow = (float) (Math.pow(right, 1.0 / power));
                 int round = Math.round(solvedPow);
                 calculate = calculate.replace("" + parts[i] + parts[i + 1], "" + round);
 
-                System.out.println(calculate);
+                out.println(calculate);
                 break;
             }
         }
@@ -84,21 +86,18 @@ public class Solve {
                 replace("%", "*1/100").
                 replace("π", "Math.PI").
                 replace("×", "*");
-        System.out.println(calculate);
+        out.println(calculate);
         ScriptEngine engine = new ScriptEngineManager().getEngineByExtension("js");
 
         try {
-            // Evaluate the expression
             Object answer = engine.eval(calculate);
             Screen.getResultList().add(answer.toString());
             Screen.getResult().setText(answer.toString());
             CalculateType.setCalculated(Boolean.TRUE);
         } catch (ScriptException e) {
-            // Something went wrong
             Screen.getResultList().add("SYNTAX ERROR");
             Screen.getResult().setText("SYNTAX ERROR");
             CalculateType.setCalculated(Boolean.TRUE);
-           // e.printStackTrace();
         }
     }
 
@@ -129,23 +128,20 @@ public class Solve {
                 replace("%", "*1/100").
                 replace("×", "*").
                 replace("log", "Math.log(");
-        System.out.println(Math.log(10));
+        out.println(Math.log(10));
 
         ScriptEngine engine = new ScriptEngineManager().getEngineByExtension("js");
 
         try {
-            // Evaluate the expression
             Object answer = engine.eval(calculate);
             Screen.getResultList().add(answer.toString());
             Screen.getResult().setText(answer.toString());
             CalculateType.setCalculated(Boolean.TRUE);
             CalculateType.setType("Normal");
         } catch (ScriptException e) {
-            // Something went wrong
             Screen.getResultList().add("SYNTAX ERROR");
             Screen.getResult().setText("SYNTAX ERROR");
             CalculateType.setCalculated(Boolean.TRUE);
-           // e.printStackTrace();
         }
     }
 
@@ -170,34 +166,30 @@ public class Solve {
                 replace("%", "*1/100").
                 replace("×", "*").
                 replace("log", "Math.log(");
-        System.out.println(calculate);
+        out.println(calculate);
         Math.cbrt(0);
 
         ScriptEngine engine = new ScriptEngineManager().getEngineByExtension("js");
 
         try {
-            // Evaluate the expression
             Object answer = engine.eval(calculate);
             Screen.getResultList().add(answer.toString());
             Screen.getResult().setText(answer.toString());
             CalculateType.setCalculated(Boolean.TRUE);
             CalculateType.setType("Normal");
         } catch (ScriptException e) {
-            // Something went wrong
             Screen.getResultList().add("SYNTAX ERROR");
             Screen.getResult().setText("SYNTAX ERROR");
             CalculateType.setCalculated(Boolean.TRUE);
-           // e.printStackTrace();
         }
     }
 
     /**
      * Solves the factorial of an integer value in a given mathematical expression.
-     * 
-     * @param value The integer value for which to compute the factorial
+     *
      */
     public void solveFactorial() {
-        int fac = Integer.parseInt(Screen.getTypeField().getText());
+        int fac = parseInt(Screen.getTypeField().getText());
         fac = factorial(fac);
         Screen.getResult().setText("" + fac);
         CalculateType.setCalculated(Boolean.TRUE);
@@ -221,9 +213,9 @@ public class Solve {
      * Computes the combination (nCr) of two numbers.
      */
     public void combination() {
-        String val[] = Screen.getTypeField().getText().split("(?=[C])|(?<=[C])");
-        int nValue = Integer.parseInt(val[0]);
-        int rValue = Integer.parseInt(val[2]);
+        String val[] = Screen.getTypeField().getText().split("(?=C)|(?<=C)");
+        int nValue = parseInt(val[0]);
+        int rValue = parseInt(val[2]);
         int nFactorial = factorial(nValue);
         int rFactorial = factorial(rValue);
         int nMinusRFactorial = factorial(nValue - rValue);
@@ -236,13 +228,13 @@ public class Solve {
 
     /**
      * Computes the permutation (nPr) of two numbers.
-     * 
      * The permutation is calculated based on the formula n! / (n-r)!
      */
     public void permutation() {
-        String val[] = Screen.getTypeField().getText().split("(?=[P])|(?<=[P])");
-        int nValue = Integer.parseInt(val[0]);
-        int rValue = Integer.parseInt(val[2]);
+        String[] val = Screen.getTypeField().getText().split("(?=P)|(?<=P)");
+        int nValue;
+        nValue = parseInt(val[0]);
+        int rValue = parseInt(val[2]);
         int nFactorial = factorial(nValue);
         int nMinusRFactorial = factorial(nValue - rValue);
         int perm = nFactorial / (nMinusRFactorial);

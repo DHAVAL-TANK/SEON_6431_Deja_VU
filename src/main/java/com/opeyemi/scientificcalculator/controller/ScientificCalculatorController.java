@@ -14,7 +14,6 @@ import de.jensd.fx.glyphs.GlyphIcon;
 import de.jensd.fx.glyphs.GlyphsBuilder;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
-//import de.jensd.fx.glyphs.fontawesome.utils.FontAwesomeIconFactory;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -32,7 +31,6 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.CubicCurve;
 import javafx.scene.text.Font;
-import javafx.scene.text.Text;
 
 /**
  * FXML Controller class
@@ -44,21 +42,17 @@ public class ScientificCalculatorController implements Initializable {
     @FXML
     private AnchorPane anchorPane;
     VBox panelBox;
-    int index = 0;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-//        System.out.println(Math.IEEEremainder(7, 3));
-//        System.out.println(Math.);
         CalculateType.setType("Normal");
         panel();
     }
 
     public void panel() {
-//        anchorPane.getStyleClass().add("anchorPane");
         panelBox = new VBox(5);
         CubicCurve curve = new CubicCurve(-175, 0, 0, 25, 50, 17.5, 175, 0);
         curve.setFill(Color.TRANSPARENT);
@@ -79,7 +73,7 @@ public class ScientificCalculatorController implements Initializable {
             }
         });
 
-        VBox calculate = new VBox();
+        VBox calculate;
         calculate = new Screen().calculateScreen();
 
         Region reg = new Region();
@@ -94,7 +88,11 @@ public class ScientificCalculatorController implements Initializable {
         topBox.getChildren().addAll(topBox(), replay(), rightTopBox());
 
         panelBox.getChildren().add(curve);
-        panelBox.getChildren().addAll(calculate, topBox, sciBox, reg, numberBox);
+        panelBox.getChildren().addAll(calculate,
+                topBox,
+                sciBox,
+                reg,
+                numberBox);
 
         AnchorPane.setLeftAnchor(panelBox, 1.0);
         AnchorPane.setRightAnchor(panelBox, 1.0);
@@ -103,7 +101,6 @@ public class ScientificCalculatorController implements Initializable {
         AnchorPane.setLeftAnchor(curve, 18.952728271484375);
         AnchorPane.setRightAnchor(curve, 18.952728271484375);
         AnchorPane.setBottomAnchor(curve, -1.0);
-//        anchorPane.getChildren().add(curve);
         anchorPane.getChildren().add(panelBox);
     }
 
@@ -148,21 +145,21 @@ public class ScientificCalculatorController implements Initializable {
         JFXButton left = new JFXButton();
 
         left.setButtonType(JFXButton.ButtonType.RAISED);
-         GlyphIcon leftIcon = GlyphsBuilder.create(FontAwesomeIconView.class)
-                .glyph(FontAwesomeIcon.CARET_LEFT)
-                 .style("-fx-fill: DARKGREY")
-                .build();
-//        Text leftIcon = FontAwesomeIconFactory.get().createIcon(FontAwesomeIcon.CARET_LEFT, "20px");
+         GlyphIcon leftIcon;
+        leftIcon = GlyphsBuilder.create(FontAwesomeIconView.class)
+               .glyph(FontAwesomeIcon.CARET_LEFT)
+                .style("-fx-fill: DARKGREY")
+               .build();
         leftIcon.setFill(Color.DARKGREY);
         left.setGraphic(leftIcon);
 
         JFXButton right = new JFXButton();
         right.setButtonType(JFXButton.ButtonType.RAISED);
-        GlyphIcon rightIcon = GlyphsBuilder.create(FontAwesomeIconView.class)
+        GlyphIcon rightIcon;
+        rightIcon = GlyphsBuilder.create(FontAwesomeIconView.class)
                 .glyph(FontAwesomeIcon.CARET_RIGHT)
                 .style("-fx-fill: DARKGREY")
                 .build();
-//        Text rightIcon = FontAwesomeIconFactory.get().createIcon(FontAwesomeIcon.CARET_RIGHT, "20px");
         rightIcon.setFill(Color.DARKGREY);
         right.setGraphic(rightIcon);
 
@@ -178,7 +175,7 @@ public class ScientificCalculatorController implements Initializable {
                 .glyph(FontAwesomeIcon.CARET_UP)
                 .style("-fx-fill: DARKGREY")
                 .build();
-//        Text topIcon = FontAwesomeIconFactory.get().createIcon(FontAwesomeIcon.CARET_UP, "20px");
+
         topIcon.setFill(Color.DARKGREY);
         top.setGraphic(topIcon);
         top.setOnAction((ev) -> {
@@ -191,13 +188,10 @@ public class ScientificCalculatorController implements Initializable {
                 .glyph(FontAwesomeIcon.CARET_DOWN)
                 .style("-fx-fill: DARKGREY")
                 .build();
-//        Text downIcon = FontAwesomeIconFactory.get().createIcon(FontAwesomeIcon.CARET_DOWN, "20px");
+
         downIcon.setFill(Color.DARKGREY);
         down.setGraphic(downIcon);
-        down.setOnAction((ev) -> {
-            getPrev();
-
-        });
+        down.setOnAction((ev) -> getPrev());
 
         BorderPane.setAlignment(top, Pos.CENTER);
         BorderPane.setAlignment(down, Pos.CENTER);
@@ -223,13 +217,9 @@ public class ScientificCalculatorController implements Initializable {
             int index2 = Screen.getToCalculate().indexOf(Screen.getTypeField().getText());
             prevToCal = Screen.getToCalculate().get(index2 - 1);
             prevResult = Screen.getResultList().get(index2 - 1);
-            Screen.getTypeField().setText(prevToCal);
-            Screen.getResult().setText(prevResult);
-        } else {
-            Screen.getTypeField().setText(prevToCal);
-            Screen.getResult().setText(prevResult);
-//        }
         }
+        Screen.getTypeField().setText(prevToCal);
+        Screen.getResult().setText(prevResult);
     }
 
     /**
@@ -301,7 +291,6 @@ public class ScientificCalculatorController implements Initializable {
         Label shift = new Label("Shift");
         shift.setTextFill(Color.GOLDENROD);
         row3.setAlignment(Pos.BOTTOM_LEFT);
-//        VBox.setMargin(shift, new Insets(0, 50, 0, 0));
 
         Label alpha = new Label("Alpha");
         alpha.setTextFill(Color.MEDIUMVIOLETRED);
@@ -337,7 +326,7 @@ public class ScientificCalculatorController implements Initializable {
         Region reg = new Region();
         VBox.setVgrow(reg, Priority.ALWAYS);
 
-        modeOn.getChildren().addAll(ShiftRightTopBox(), on, mode, reg, shiftHalf2SciRow1(), new ScientificButtons().half2Row());
+        modeOn.getChildren().addAll(shiftRightTopBox(), on, mode, reg, shiftHalf2SciRow1(), new ScientificButtons().half2Row());
         return modeOn;
     }
 
@@ -349,7 +338,7 @@ public class ScientificCalculatorController implements Initializable {
      *
      * @return The VBox containing the buttons for the second half of the shift mode.
      */
-    public VBox ShiftRightTopBox() {
+    public VBox shiftRightTopBox() {
         VBox row3 = new VBox();
         row3.setPrefWidth(panelBox.getPrefWidth() / 3);
         Label on = new Label("on");
@@ -532,7 +521,6 @@ public class ScientificCalculatorController implements Initializable {
     public HBox numShiftRow1() {
         HBox row1 = new HBox();
         row1.setPrefWidth(panelBox.getPrefWidth());
-//        row1.setPadding(new Insets(5));
 
         Label ins = new Label("INS");
         ins.setTextFill(Color.GOLD);

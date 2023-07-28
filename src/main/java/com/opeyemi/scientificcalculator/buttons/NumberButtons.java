@@ -6,7 +6,6 @@
 package com.opeyemi.scientificcalculator.buttons;
 
 import com.jfoenix.controls.JFXButton;
-import com.opeyemi.scientificcalculator.ScientificCalculator;
 import com.opeyemi.scientificcalculator.Screen;
 import com.opeyemi.scientificcalculator.Solve;
 import com.opeyemi.scientificcalculator.model.CalculateType;
@@ -19,13 +18,14 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 
+import java.util.Objects;
+
 
 /**
  * The NumberButtons class is responsible for creating and managing the numeric buttons in the scientific calculator.
  * It provides methods to generate individual number buttons as well as organized rows of number buttons.
  * These buttons allow users to input numeric values and perform arithmetic operations in the calculator.
  * The class also handles the "AC" (All Clear) button to reset the calculator's state.
- * 
  * Each number button is represented by a JFXButton, which is a custom-styled JavaFX button.
  * The class also handles button actions to update the display and perform calculations.
  * 
@@ -35,21 +35,19 @@ public class NumberButtons {
 
     HBox row1;
     HBox row2;
-    HBox row3;
 
     /**
      * Constructs a new instance of the NumberButtons class.
-     *
      * The NumberButtons class is responsible for creating and managing the number buttons used in the calculator user interface.
      * It organizes the number buttons into rows for display and interaction.
      */
     public NumberButtons() {
         row1 = new HBox(10);
-        row1.setPrefWidth(350);;
+        row1.setPrefWidth(350);
         row1.setPadding(new Insets(0, 5, 5, 5));
 
         row2 = new HBox(10);
-        row2.setPrefWidth(350);;
+        row2.setPrefWidth(350);
         row2.setPadding(new Insets(10, 5, 5, 5));
 
     }
@@ -60,8 +58,7 @@ public class NumberButtons {
      * @return The HBox containing the number buttons.
      */
     public HBox numbers() {
-        HBox hbox = new HBox();
-        return hbox;
+        return new HBox();
     }
 
     /**
@@ -71,7 +68,7 @@ public class NumberButtons {
      */ 
     public HBox row4() {
         HBox row4 = new HBox(10);
-        row4.setPrefWidth(350);;
+        row4.setPrefWidth(350);
         row4.setPadding(new Insets(0, 5, 5, 5));
         row4.getChildren().addAll(createJFXNumButton("0",1), createJFXNumButton(".",1), createJFXNumButton("exp",2), createJFXNumButton("Ans",2), equals());
         return row4;
@@ -84,7 +81,7 @@ public class NumberButtons {
      */
     public HBox row3() {
         HBox row3 = new HBox(10);
-        row3.setPrefWidth(350);;
+        row3.setPrefWidth(350);
         row3.setPadding(new Insets(0, 5, 5, 5));
         row3.getChildren().addAll( createJFXNumButton("1",1),  createJFXNumButton("2",1), createJFXNumButton("3",1),  createJFXNumButton("+",1), createJFXNumButton("-",1));
         return row3;
@@ -97,7 +94,7 @@ public class NumberButtons {
      */
     public HBox row2() {
         HBox row2 = new HBox(10);
-        row2.setPrefWidth(350);;
+        row2.setPrefWidth(350);
         row2.setPadding(new Insets(10, 5, 5, 5));
         row2.getChildren().addAll( createJFXNumButton("4",1),  createJFXNumButton("5",1),  createJFXNumButton("6",1), createJFXNumButton("×",1), createJFXNumButton("÷",1));
         return row2;
@@ -110,7 +107,7 @@ public class NumberButtons {
      */
     public HBox row1() {
         HBox row1 = new HBox(10);
-        row1.setPrefWidth(350);;
+        row1.setPrefWidth(350);
         row1.setPadding(new Insets(0, 5, 10, 5));
         row1.getChildren().addAll(createJFXNumButton("7",1), createJFXNumButton("8",1), createJFXNumButton("9",1), del(), ac());
         return row1;
@@ -142,10 +139,7 @@ public class NumberButtons {
             }
             if( type == 1 )
           { Screen.getTypeField().appendText(label);}
-          else {
-
-          }
-           });
+          });
         return button;
     }
 
@@ -159,7 +153,7 @@ public class NumberButtons {
     public JFXButton del() {
         JFXButton del = new JFXButton();
 
-        ImageView delIcon = new ImageView(new Image(getClass().getResource("/images/delete.png").toExternalForm()));
+        ImageView delIcon = new ImageView(new Image(Objects.requireNonNull(getClass().getResource("/images/delete.png")).toExternalForm()));
         delIcon.setFitWidth(20);
         delIcon.setFitHeight(20);
         ColorAdjust white = new ColorAdjust();
@@ -181,7 +175,7 @@ public class NumberButtons {
                 Screen.getTypeField().setText("");
                 CalculateType.setCalculated(Boolean.FALSE);
             }
-            Screen.getTypeField().setText(Screen.getTypeField().getText().toString().substring(0, Screen.getTypeField().getText().length() - 1));
+            Screen.getTypeField().setText(Screen.getTypeField().getText().substring(0, Screen.getTypeField().getText().length() - 1));
         });
         return del;
     }
