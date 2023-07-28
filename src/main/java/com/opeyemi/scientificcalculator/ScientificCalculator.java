@@ -49,7 +49,7 @@ public class ScientificCalculator extends Application {
         primaryStage.setX(500.0);
         primaryStage.setY(80.0);
         primaryStage.setWidth(350);
-        primaryStage.setHeight(600);
+        primaryStage.setHeight(700);
         primaryStage.setTitle("Calculator");
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
